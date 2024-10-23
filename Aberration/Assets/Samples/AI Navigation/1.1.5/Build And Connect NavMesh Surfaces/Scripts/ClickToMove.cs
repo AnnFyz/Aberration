@@ -26,5 +26,10 @@ namespace Unity.AI.Navigation.Samples
                     m_Agent.destination = m_HitInfo.point;
             }
         }
+
+        public void Move()
+        {
+            
+        }
     }
 }

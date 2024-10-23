@@ -9,7 +9,9 @@ using UnityEngine.AI;
 public class CompanionController : MonoBehaviour
 {
     [SerializeField] XRRayInteractor rayInteractor;
+    [SerializeField] NearFarInteractor rayInteractorNearFar;
     NavMeshAgent m_Agent;
+    Vector3 endPoint;
 
     void Start()
     {
@@ -22,5 +24,13 @@ public class CompanionController : MonoBehaviour
        
         if (rayInteractor.TryGetCurrent3DRaycastHit(out var raycastHit))
             m_Agent.destination = raycastHit.point;
+
+        
+    }
+
+    public void MoveWithNearFarInteractor()
+    {
+        rayInteractorNearFar.TryGetCurveEndPoint(out Vector3 endPoint);
+        m_Agent.destination = endPoint;
     }
 }

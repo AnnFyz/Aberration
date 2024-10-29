@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Check : MonoBehaviour
 {
-   public void ChechSelection()
+
+    private void Update()
     {
-        Debug.Log("CheckSelection");
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("CheckSelection");
+        }
+    }
+    public void ChechSelection(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("CheckSelection + " + ctx.ReadValue<Vector2>());
     }
 }

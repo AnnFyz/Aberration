@@ -29,6 +29,7 @@ public class NavMeshCharacterController : MonoBehaviour
         m_Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         m_RB = GetComponent<Rigidbody>();
         isGrounded = true;
+        m_RB.isKinematic = true;
     }
 
 
@@ -88,7 +89,7 @@ public class NavMeshCharacterController : MonoBehaviour
 
     public void Jump()
     {
-       
+        m_RB.isKinematic = false;
         if (isGrounded)
         {
             isGrounded = false;
@@ -105,13 +106,13 @@ public class NavMeshCharacterController : MonoBehaviour
                 //m_Agent.SetDestination(transform.position);
                 posY = transform.position.y;
                 // disable the agent
-                //GetComponent<NavMeshAgent>().SetDestination(transform.position.x, );
+                //GetComponent<NavMeshAgent>().SetDestination(transform.position);
                 m_Agent.updatePosition = false;
                 m_Agent.updateRotation = false;
                 m_Agent.isStopped = true;
             }
             // make the jump
-           // m_RB.isKinematic = false;
+            m_RB.isKinematic = false;
             m_RB.useGravity = true;
             //m_RB.AddRelativeForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             NavMeshJump();
@@ -127,18 +128,20 @@ public class NavMeshCharacterController : MonoBehaviour
         {
             if (!isGrounded)
             {
-
+                m_RB.velocity = Vector3.zero;
                 if (m_Agent.enabled)
                 {
-                    
-                    m_Agent.velocity = new Vector3(0, 0, 0);
-                    Vector3 targetPos = new Vector3(transform.position.x, posY, transform.position.z);
-                    m_Agent.SetDestination(targetPos);
+
+                    // m_Agent.velocity = new Vector3(0, 0, 0);
+                    //Vector3 targetPos = new Vector3(transform.position.x, posY, transform.position.z);
+                    //m_Agent.SetDestination(targetPos);
+                    m_Agent.ResetPath();
                     m_Agent.updatePosition = true;
                     m_Agent.updateRotation = true;
                     m_Agent.isStopped = false;
                 }
-               
+
+                m_RB.isKinematic = true;
                 m_RB.useGravity = false;
                 isGrounded = true;
             }

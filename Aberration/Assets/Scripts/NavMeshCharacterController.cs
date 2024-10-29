@@ -17,7 +17,7 @@ public class NavMeshCharacterController : MonoBehaviour
     Rigidbody m_RB;
     UnityEngine.AI.NavMeshAgent m_Agent;
     RaycastHit m_HitInfo = new RaycastHit();
-    Vector3 inputValueY;
+    float posY;
     [SerializeField] bool onNavMeshLink = false;
 
 
@@ -99,11 +99,13 @@ public class NavMeshCharacterController : MonoBehaviour
                 // this stops her before she jumps. Alternatively, you could
                 // cache this value, and set it again once the jump is complete
                 // to continue the original move
-                m_Agent.velocity = new Vector3(0, m_RB.velocity.y, 0);
-                NavMeshHit hit;
-                NavMesh.SamplePosition(transform.position, out hit, 1f, NavMesh.AllAreas);
+                //m_Agent.velocity = new Vector3(0, m_RB.velocity.y, 0);
+                //NavMeshHit hit;
+                // NavMesh.SamplePosition(transform.position, out hit, 1f, NavMesh.AllAreas);
                 //m_Agent.SetDestination(transform.position);
+                posY = transform.position.y;
                 // disable the agent
+                //GetComponent<NavMeshAgent>().SetDestination(transform.position.x, );
                 m_Agent.updatePosition = false;
                 m_Agent.updateRotation = false;
                 m_Agent.isStopped = true;
@@ -128,7 +130,10 @@ public class NavMeshCharacterController : MonoBehaviour
 
                 if (m_Agent.enabled)
                 {
-                    Debug.Log("Enabled");
+                    
+                    m_Agent.velocity = new Vector3(0, 0, 0);
+                    Vector3 targetPos = new Vector3(transform.position.x, posY, transform.position.z);
+                    m_Agent.SetDestination(targetPos);
                     m_Agent.updatePosition = true;
                     m_Agent.updateRotation = true;
                     m_Agent.isStopped = false;
@@ -142,7 +147,7 @@ public class NavMeshCharacterController : MonoBehaviour
 
     public void NavMeshJump()
     {
-        m_RB.AddForce(new Vector3(inputValue.x * jumpForce, jumpForce, inputValue.z * jumpForce), ForceMode.Impulse);
+        m_RB.AddForce(new Vector3(inputValue.x * 5, jumpForce, inputValue.z * 5), ForceMode.Impulse);
 
     }
 }

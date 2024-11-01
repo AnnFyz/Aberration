@@ -397,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 309132939}
   serializedVersion: 2
   m_LocalRotation: {x: 0.24479969, y: 0, z: 0, w: 0.9695737}
-  m_LocalPosition: {x: 18.101, y: 22.30818, z: -37.698498}
+  m_LocalPosition: {x: 23.71, y: 23.838179, z: -37.698498}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -507,9 +507,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!195 &480974271
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -641,7 +641,7 @@ MonoBehaviour:
   wasJumpEnded: 0
   groundChecker: {fileID: 0}
   jumpForce: 25
-  sideJumpSpeed: 400
+  sideJumpSpeed: 600
   isGrounded: 0
   raycastDistance: 1.33
   groundLayers:
@@ -1827,7 +1827,7 @@ Transform:
   m_GameObject: {fileID: 701235151}
   serializedVersion: 2
   m_LocalRotation: {x: 0.24479969, y: 0, z: 0, w: 0.9695737}
-  m_LocalPosition: {x: 18.101, y: 7.627027, z: -11.531463}
+  m_LocalPosition: {x: 23.71, y: 9.157026, z: -11.531463}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1853,7 +1853,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1788322342}
+  m_Follow: {fileID: 480974275}
   m_Lens:
     FieldOfView: 20
     OrthographicSize: 10
@@ -1987,8 +1987,8 @@ Transform:
   m_GameObject: {fileID: 723887968}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.515829, y: 0.27, z: -1.6973661}
-  m_LocalScale: {x: 3.8696718, y: 7.17774, z: 6.244216}
+  m_LocalPosition: {x: 13.515829, y: -6.66, z: -1.6974}
+  m_LocalScale: {x: 8.0082855, y: 14.854333, z: 12.922404}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2138,8 +2138,8 @@ Transform:
   m_GameObject: {fileID: 782143487}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.158531, y: 1.4, z: 1.01}
-  m_LocalScale: {x: 2.5632, y: 14.770265, z: 2.8058}
+  m_LocalPosition: {x: 11.01, y: -4.09, z: 1.01}
+  m_LocalScale: {x: 4.6475945, y: 13.186647, z: 5.0874763}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2396,7 +2396,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.1
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: c69f509a707c4e34781a7b21dea571f4, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a1a7ed98f03ef4349bbb37e5c7436574, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &1274785641
 GameObject:
@@ -3167,8 +3167,8 @@ MonoBehaviour:
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneWidth: 1.25
+  m_SoftZoneHeight: 1.25
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1

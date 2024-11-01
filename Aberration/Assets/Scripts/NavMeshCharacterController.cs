@@ -171,9 +171,12 @@ public class NavMeshCharacterController : MonoBehaviour
             //Vector3 targetPos = new Vector3(transform.position.x, posY, transform.position.z);
             //m_Agent.SetDestination(targetPos);
             //m_Agent.ResetPath();
-           
-            Debug.Log("Warp:" + m_Agent.Warp(new Vector3(transform.position.x, posY, transform.position.z)));
-            if (m_Agent.Warp(new Vector3(transform.position.x, posY, transform.position.z)))
+            m_Agent.updatePosition = true;
+            m_Agent.updateRotation = true;
+            m_Agent.isStopped = false;
+
+            Debug.Log("Warp:" + m_Agent.Warp(new Vector3(transform.position.x, groundChecker.hit.point.y, transform.position.z)));
+            if (m_Agent.Warp(new Vector3(transform.position.x,posY, transform.position.z)))
             {
                 m_Agent.Warp(new Vector3(transform.position.x, posY, transform.position.z));
             }
@@ -186,7 +189,7 @@ public class NavMeshCharacterController : MonoBehaviour
 
             m_Agent.updatePosition = true;
             m_Agent.updateRotation = true;
-            m_Agent.isStopped = false;
+            //m_Agent.isStopped = false;
         }
         currentPlayerState = PlayerState.Land;
 

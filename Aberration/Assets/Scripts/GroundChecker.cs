@@ -7,10 +7,14 @@
         [SerializeField] LayerMask groundLayers;
 
     public bool IsGrounded;
-
-        void Update() {
-            IsGrounded = Physics.SphereCast(transform.position, groundDistance, Vector3.down, out _, groundDistance, groundLayers);
-        }
+    public RaycastHit hit;
+    public float Ypos;
+    public RaycastHit hitY;
+    void Update() {
+            IsGrounded = Physics.SphereCast(transform.position, groundDistance, Vector3.down, out hit, groundDistance, groundLayers);
+            Physics.SphereCast(transform.position, 1, Vector3.down, out hitY, 1, groundLayers);
+        Ypos = hitY.point.y;
+    }
 
         private void OnDrawGizmos()
     {

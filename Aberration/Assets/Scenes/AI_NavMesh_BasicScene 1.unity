@@ -633,12 +633,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityScale: 10
+  fallingGravityScale: 25
+  currentGravityScale: 0
   currentPlayerState: 0
   speed: 300
   onNavMeshLink: 0
   wasJumpEnded: 0
   groundChecker: {fileID: 0}
   jumpForce: 25
+  sideJumpSpeed: 400
   isGrounded: 0
   raycastDistance: 1.33
   groundLayers:
@@ -4067,12 +4070,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityScale: 1
+  fallingGravityScale: 40
+  currentGravityScale: 0
   currentPlayerState: 0
   speed: 300
   onNavMeshLink: 0
   wasJumpEnded: 0
   groundChecker: {fileID: 0}
   jumpForce: 10
+  sideJumpSpeed: 0
   isGrounded: 1
   raycastDistance: 0.6
   groundLayers:

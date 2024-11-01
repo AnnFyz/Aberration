@@ -17,7 +17,9 @@ public enum PlayerState
 [RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
 public class NavMeshCharacterController : MonoBehaviour
 {
-    public float gravityScale = 1f; //The gravity scale
+    public float gravityScale = 10f; //The gravity scale
+    public float fallingGravityScale = 20;
+    [SerializeField] float currentGravityScale;
     [SerializeField] PlayerState currentPlayerState;
     [SerializeField] float speed = 10f;
     Vector3 inputValue = Vector3.zero;
@@ -33,11 +35,14 @@ public class NavMeshCharacterController : MonoBehaviour
     [SerializeField] GroundChecker groundChecker;
 
     public float jumpForce = 7f;
+    [SerializeField] float sideJumpSpeed = 15f;
     [SerializeField] bool isGrounded;
     public float raycastDistance = 0.6f;
     [SerializeField] LayerMask groundLayers;
     [SerializeField] float sekBeforeCheck = 2f;
     [SerializeField] bool isLanded = false;
+
+  
     void Start()
     {
         m_Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -47,11 +52,26 @@ public class NavMeshCharacterController : MonoBehaviour
         groundChecker = GetComponent<GroundChecker>();
     }
 
+    private void Update()
+    {
 
+        if (m_RB.velocity.y >= 0)
+        {
+
+            currentGravityScale = gravityScale;
+        }
+        else if (m_RB.velocity.y < 0)
+        {
+            currentGravityScale = fallingGravityScale;
+        }
+    }
     private void FixedUpdate()
     {
         StepWithRB();
-        m_RB.AddForce(Physics.gravity * gravityScale, ForceMode.Acceleration);
+
+        // gravity settings
+        //m_RB.AddForce(Physics.gravity * gravityScale, ForceMode.Acceleration);
+        m_RB.AddForce(Physics.gravity * (currentGravityScale - 1) * m_RB.mass);
     }
 
 
@@ -97,7 +117,7 @@ public class NavMeshCharacterController : MonoBehaviour
         Vector2 input2D = ctx.ReadValue<Vector2>();
         inputValue.x = input2D.x;
         inputValue.z = input2D.y;
-        if (!isGrounded) return;
+        //if (!isGrounded) return;
         moveDir = inputValue.normalized;
     }
 
@@ -113,7 +133,7 @@ public class NavMeshCharacterController : MonoBehaviour
                 // this stops her before she jumps. Alternatively, you could
                 // cache this value, and set it again once the jump is complete
                 // to continue the original move
-                //m_Agent.velocity = new Vector3(0, m_RB.velocity.y, 0);
+                m_Agent.velocity = new Vector3(0, m_RB.velocity.y, 0);
                 NavMeshHit hit;
                 //NavMesh.SamplePosition(transform.position, out hit, 1f, NavMesh.AllAreas);
                 //m_Agent.SetDestination(transform.position);
@@ -187,6 +207,9 @@ public class NavMeshCharacterController : MonoBehaviour
 
     public void NavMeshJump()
     {
+        // Reset y velocity and jump
+        Vector3 velocity = moveDir * sideJumpSpeed * Time.fixedDeltaTime;
+        m_RB.velocity = new Vector3(velocity.x, 0f, velocity.z);
         m_RB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
     }

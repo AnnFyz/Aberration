@@ -125,7 +125,7 @@ Material:
     - _UnityShadowMode: 1
     - _UnityShadowPower: 0.383
     - _UnityShadowSharpness: 1
-    - _UvFadeX: 3.16
+    - _UvFadeX: 0.33
     - _UvFadeY: 0.28
     - _ZWrite: 1
     m_Colors:

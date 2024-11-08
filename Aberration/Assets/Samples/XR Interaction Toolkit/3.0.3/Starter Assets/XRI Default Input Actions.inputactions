@@ -2994,7 +2994,7 @@
                     "id": "6a9c45dc-f825-4187-981b-e0e479afa108",
                     "path": "2DVector",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "groups": "",
                     "action": "MoveCompanion",
                     "isComposite": true,

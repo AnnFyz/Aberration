@@ -11,6 +11,7 @@ public class CompanionCharacterController : MonoBehaviour
 
     // variables to store optimized getter/setter IDs
     int isMovingHash;
+    int isJumpingHash;
 
     //movement
     [Header("Movemet")]
@@ -37,6 +38,7 @@ public class CompanionCharacterController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         companionControls = new CompanionControls();
         isMovingHash = Animator.StringToHash("IsMoving");
+        isJumpingHash = Animator.StringToHash("IsJumping");
 
         //companionControls.CompanionCharacterControls.MoveCompanion.started += context => { Debug.Log(context.ReadValue<Vector2>()); };
         companionControls.CompanionCharacterControls.MoveCompanion.started += OnMovementInput;
@@ -115,13 +117,26 @@ public class CompanionCharacterController : MonoBehaviour
 
     void HandleGravity()
     {
+        bool isFalling = currentMovement.y <= 0.0f || !isJumpPressed;
+        float fallMultiplier = 2f;
         if (characterController.isGrounded)
         {
+            animator.SetBool(isJumpingHash, false);
             currentMovement.y = groundedGravity;
+        }
+        else if (isFalling)
+        {
+            float previousYVelocity = currentMovement.y; 
+            float newYVelocity = currentMovement.y + (gravity * fallMultiplier * Time.deltaTime);
+            float nextYVelocity = Mathf.Max((previousYVelocity + newYVelocity) * 0.5f, -20f); //Mathf.Max for velocity clamp
+            currentMovement.y = nextYVelocity;
         }
         else
         {
-            currentMovement.y += gravity;
+            float previousYVelocity = currentMovement.y;
+            float newYVelocity = currentMovement.y + (gravity * Time.deltaTime);
+            float nextYVelocity = (previousYVelocity + newYVelocity) *0.5f;
+            currentMovement.y = nextYVelocity;
         }
     }
 
@@ -136,8 +151,9 @@ public class CompanionCharacterController : MonoBehaviour
     {
         if(!isJumping && characterController.isGrounded && isJumpPressed)
         {
+            animator.SetBool(isJumpingHash, true);
             isJumping = true;
-            currentMovement.y = initialJumpVelocity; 
+            currentMovement.y = initialJumpVelocity * .5f; 
         }
         else if (!isJumpPressed && isJumping && characterController.isGrounded)
         {

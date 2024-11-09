@@ -14,9 +14,10 @@ Material:
   m_ValidKeywords:
   - DR_CEL_EXTRA_ON
   - DR_GRADIENT_ON
+  - DR_RIM_ON
   - _CELPRIMARYMODE_SINGLE
   - _DETAILMAPBLENDINGMODE_MULTIPLY
-  - _GRADIENTSPACE_WORLD
+  - _GRADIENTSPACE_LOCAL
   - _OUTLINESPACE_SCREEN
   - _TEXTUREBLENDINGMODE_MULTIPLY
   - _UNITYSHADOWMODE_MULTIPLY
@@ -119,13 +120,13 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _GradientAngle: 147
+    - _GradientAngle: 73
     - _GradientCenterX: 0
     - _GradientCenterY: 0
     - _GradientEnabled: 1
     - _GradientEnd: 0.55
-    - _GradientSize: -47.8
-    - _GradientSpace: 0
+    - _GradientSize: 7.4
+    - _GradientSpace: 1
     - _GradientStart: 1.17
     - _LightContribution: 0.5
     - _LightFalloffSize: 0.0001
@@ -144,7 +145,7 @@ Material:
     - _OverrideShadowsEnabled: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
-    - _RimEnabled: 0
+    - _RimEnabled: 1
     - _SecondaryColor: 1
     - _SecondaryColorEnabled: 1
     - _SelfShadingSize: 0.811
@@ -176,7 +177,7 @@ Material:
     - _ColorDimCurve: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
     - _ColorDimExtra: {r: 0.8679245, g: 0, b: 0.07439358, a: 1}
     - _ColorDimSteps: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
-    - _ColorGradient: {r: 0.33962262, g: 0.04645782, b: 0.087364554, a: 1}
+    - _ColorGradient: {r: 0.6698113, g: 0.11690103, b: 0.19062233, a: 1}
     - _ColorSecondary: {r: 1, g: 0.55879205, b: 0, a: 1}
     - _ColorShadow: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _ColorShadows: {r: 0.5471698, g: 0.37346402, b: 0.26584196, a: 1}

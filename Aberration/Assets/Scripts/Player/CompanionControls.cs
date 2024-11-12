@@ -116,7 +116,7 @@ public partial class @CompanionControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8548cd7f-6325-45d3-8cf6-f65905f6799e"",
-                    ""path"": ""<XRController>/joystick"",
+                    ""path"": ""<XRController>{LeftHand}/joystick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

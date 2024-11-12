@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -86,6 +87,14 @@ public class LaserHandle : XRBaseInteractable
 
     [Serializable]
     public class ValueChangeEvent : UnityEvent<float> { }
+
+    [SerializeField] bool isAutoRotating = false;
+    [SerializeField] bool isAutoRotationStarted = false;
+    [SerializeField] bool isAutoRotationReset = false;
+    [SerializeField] Vector3 currentRotation;
+    [SerializeField] int rotationDir = 1;
+    [SerializeField] float startValue;
+    [SerializeField] float autoRotationValue;
 
     [SerializeField]
     [Tooltip("The object that is visually grabbed and manipulated")]
@@ -187,6 +196,17 @@ public class LaserHandle : XRBaseInteractable
     {
         SetValue(m_Value);
         SetKnobRotation(ValueToRotation());
+        startValue = m_Value;
+        autoRotationValue = startValue;
+        isAutoRotationReset = true;
+    }
+
+    private void Update()
+    {
+        if (!isSelected && isAutoRotationReset)
+        {           
+           AutoRotation();
+        }
     }
 
     protected override void OnEnable()
@@ -213,11 +233,17 @@ public class LaserHandle : XRBaseInteractable
 
         UpdateBaseKnobRotation();
         UpdateRotation(true);
+        isAutoRotationReset = false;
     }
 
     void EndGrab(SelectExitEventArgs args)
     {
         m_Interactor = null;
+        autoRotationValue = m_Value;
+        if (!isAutoRotationReset)
+        {
+           StartCoroutine(StartAutoRotationCoroutine());
+        }
     }
 
     public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
@@ -233,6 +259,42 @@ public class LaserHandle : XRBaseInteractable
         }
     }
 
+    IEnumerator StartAutoRotationCoroutine()
+    {
+        yield return new WaitForSeconds(.75f);
+        isAutoRotationReset = true;
+        Debug.Log("isAutoRotationReset" + isAutoRotationReset);
+
+    }
+        void AutoRotation()
+    {
+        if (!isAutoRotating)
+        {
+            isAutoRotating = true;
+            StartCoroutine(AutoRotationCoroutine());
+
+        }
+       
+    }
+
+    IEnumerator AutoRotationCoroutine()
+    {
+      
+        yield return new WaitForSeconds(0.025f);
+        if(m_Value >= 1)
+        {
+            rotationDir = -1;
+        }
+        else if(m_Value <= 0)
+        {
+            rotationDir = 1;
+        }
+
+        autoRotationValue += 0.0025f * rotationDir;
+        SetValue(autoRotationValue);
+        SetKnobRotation(ValueToRotation());
+        isAutoRotating = false;
+    }
     void UpdateRotation(bool freshCheck = false)
     {
         // Are we in position offset or direction rotation mode?
@@ -335,6 +397,7 @@ public class LaserHandle : XRBaseInteractable
         }
           
     }
+
 
     void SetValue(float value)
     {

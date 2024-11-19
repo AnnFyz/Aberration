@@ -161,10 +161,10 @@ public class CompanionCharacterController : MonoBehaviour
         gravity = (-2 * maxJumpHeight) / Mathf.Pow(timeToApex, 2);
         initialJumpVelocity = (2 * maxJumpHeight) / timeToApex;
 
-        float secondJumpGravity = (-2 * (maxJumpHeight + 2)) / Mathf.Pow((timeToApex * 1.25f), 2);
-        float secondJumpInitialGravity = (2 * (maxJumpHeight + 2)) / (timeToApex * 1.25f);
-        float thirdJumpGravity = (-2 * (maxJumpHeight + 4)) / Mathf.Pow((timeToApex * 1.5f), 2);
-        float thirdJumpInitialGravity = (2 * (maxJumpHeight + 4)) / (timeToApex * 1.5f);
+        float secondJumpGravity = (-2 * (maxJumpHeight + 1)) / Mathf.Pow((timeToApex * 1.1f), 2);
+        float secondJumpInitialGravity = (2 * (maxJumpHeight + 1)) / (timeToApex * 1.1f);
+        float thirdJumpGravity = (-2 * (maxJumpHeight + 1.25f)) / Mathf.Pow((timeToApex * 1.2f), 2);
+        float thirdJumpInitialGravity = (2 * (maxJumpHeight + 1.25f)) / (timeToApex * 1.2f);
 
         initialJumpVelocities.Add(1, initialJumpVelocity);
         initialJumpVelocities.Add(2, secondJumpInitialGravity);

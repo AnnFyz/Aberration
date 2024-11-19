@@ -25,9 +25,10 @@ Material:
   m_Parent: {fileID: 2100000, guid: e6697fbdb953e2341a6b046322d9b456, type: 2}
   m_ModifiedSerializedProperties: 16
   m_ValidKeywords:
+  - DR_RIM_ON
   - _CELPRIMARYMODE_SINGLE
   - _DETAILMAPBLENDINGMODE_MULTIPLY
-  - _GRADIENTSPACE_WORLD
+  - _GRADIENTSPACE_LOCAL
   - _OUTLINESPACE_SCREEN
   - _TEXTUREBLENDINGMODE_MULTIPLY
   m_InvalidKeywords:

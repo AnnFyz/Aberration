@@ -10,6 +10,7 @@ public class PlatformInteractable : XRBaseInteractable
 {
     [Header("Platform Handle Data")]
     public Transform draggedTransform;
+    public Transform endPosition;
 
     public Vector3 localDragDirection;
     public float dragDistance;
@@ -38,7 +39,8 @@ public class PlatformInteractable : XRBaseInteractable
 
         //we store the start and end position of the drag, as the object will move as it is dragged
         m_StartPosition = draggedTransform.position;
-        m_EndPosition = m_StartPosition + m_WorldDragDirection * dragDistance;
+        //m_EndPosition = m_StartPosition + m_WorldDragDirection * dragDistance;
+        m_EndPosition = endPosition.position;
 
         // ================== EXTENSION FOR THE VISUAL LINE ==========================
         handleToHandLine.gameObject.SetActive(false);
@@ -105,8 +107,8 @@ public class PlatformInteractable : XRBaseInteractable
     {
         base.OnSelectEntered(args);
 
-        handleToHandLine.gameObject.SetActive(true);
-        dragVectorLine.gameObject.SetActive(true);
+        handleToHandLine.gameObject.SetActive(false);
+        dragVectorLine.gameObject.SetActive(false);
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)

@@ -30,7 +30,7 @@ public class CheckpointTeleporter : MonoBehaviour
 
     public void SetCurrentCheckpoint(Transform checkpoint)
     {
-        Debug.Log("SetCurrentCheckpoint");
+       
         currentCheckpoint = checkpoint;
     }
 }

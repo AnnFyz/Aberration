@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5990596737949749945
 Transform:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 4608191022076069388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.47, y: -0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 8494750270454761305}
   - component: {fileID: 2875482404448072481}
   m_Layer: 0
-  m_Name: Platform
+  m_Name: Platform_Dynamic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 17.76, y: -24.310001, z: -38.862785}
-  m_LocalScale: {x: 0.64645, y: 0.64644986, z: 0.64644986}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3688432117340590250}
@@ -334,9 +334,9 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   draggedTransform: {fileID: 718085847582330448}
   endPosition: {fileID: 4383617800893700093}
-  localDragDirection: {x: -1, y: 0, z: 0}
+  localDragDirection: {x: 0, y: 1, z: 0}
   dragDistance: 10
-  doorWeight: 20
+  doorWeight: 5
   handleToHandLine: {fileID: 5562409446881665920}
   dragVectorLine: {fileID: 617405873746835677}
 --- !u!65 &8578105398450767623
@@ -1986,7 +1986,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 49
+  m_VersionIndex: 97
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2019,7 +2019,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2041,7 +2041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4278136064285963653
 Transform:
   m_ObjectHideFlags: 0

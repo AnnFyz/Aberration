@@ -107,8 +107,8 @@ public class PlatformInteractable : XRBaseInteractable
     {
         base.OnSelectEntered(args);
 
-        handleToHandLine.gameObject.SetActive(false);
-        dragVectorLine.gameObject.SetActive(false);
+        handleToHandLine.gameObject.SetActive(true);
+        dragVectorLine.gameObject.SetActive(true);
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)

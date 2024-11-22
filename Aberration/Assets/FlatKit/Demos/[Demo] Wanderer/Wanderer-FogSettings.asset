@@ -141,4 +141,4 @@ MonoBehaviour:
   distanceHeightBlend: 0.5
   renderEvent: 550
   applyInSceneView: 1
-  effectMaterial: {fileID: 0}
+  effectMaterial: {fileID: -9103303283374718557}

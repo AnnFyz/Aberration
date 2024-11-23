@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5427871860799906069}
   - component: {fileID: 4195682601643685087}
+  - component: {fileID: 2304215329631803612}
+  - component: {fileID: 9191299901610851750}
   m_Layer: 0
   m_Name: PlatformLang__Dynamic
   m_TagString: Untagged
@@ -113,9 +115,45 @@ MonoBehaviour:
   endPosition: {fileID: 7431543126944080615}
   localDragDirection: {x: 1, y: 0, z: 0}
   dragDistance: 10
-  doorWeight: 2
+  platformWeight: 20
+  isAutoMoving: 0
+  rotationDir: 1
   handleToHandLine: {fileID: 3988342662805524501}
   dragVectorLine: {fileID: 1562838689537140107}
+--- !u!65 &2304215329631803612
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153244170813805387}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5920486, y: 1.7921238, z: 15}
+  m_Center: {x: -0.0203197, y: 0.3960619, z: 0}
+--- !u!114 &9191299901610851750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153244170813805387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae8ba8264de27f429ed4eeeeb4a175b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoint: {fileID: 423175781697406089}
 --- !u!1 &5235913756800653923
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,7 +894,7 @@ Transform:
   m_GameObject: {fileID: 7179336975163849752}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4383928, y: 1.6328306, z: -0.0464257}
+  m_LocalPosition: {x: 0.12, y: 1.6328306, z: -0.0464257}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -876,8 +914,6 @@ GameObject:
   - component: {fileID: 250658967505733303}
   - component: {fileID: 8384553963372732375}
   - component: {fileID: 6766949877009316795}
-  - component: {fileID: 6604773463600574653}
-  - component: {fileID: 2477672735578726253}
   m_Layer: 0
   m_Name: 'PlatformLang_Dynamic_visual '
   m_TagString: Untagged
@@ -1234,42 +1270,8 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 58
+  m_VersionIndex: 82
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!65 &6604773463600574653
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7303367705957225302}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 15.116781, y: 1.9264317, z: 2.5728505}
-  m_Center: {x: -0.0000019073486, y: 0.2060461, z: 0.000000834465}
---- !u!114 &2477672735578726253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7303367705957225302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ae8ba8264de27f429ed4eeeeb4a175b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpoint: {fileID: 423175781697406089}

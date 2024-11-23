@@ -205,7 +205,7 @@ public class LaserHandle : XRBaseInteractable
     {
         if (!isSelected && isAutoRotationReset)
         {           
-           AutoRotation();
+           AutoRotate();
         }
     }
 
@@ -266,7 +266,7 @@ public class LaserHandle : XRBaseInteractable
         Debug.Log("isAutoRotationReset" + isAutoRotationReset);
 
     }
-        void AutoRotation()
+        void AutoRotate()
     {
         if (!isAutoRotating)
         {

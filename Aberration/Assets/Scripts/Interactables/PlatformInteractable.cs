@@ -8,6 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class PlatformInteractable : XRBaseInteractable
 {
+
     [Header("Platform Handle Data")]
     public Transform draggedTransform;
     public Transform endPosition;
@@ -16,8 +17,20 @@ public class PlatformInteractable : XRBaseInteractable
     public float dragDistance;
 
     //arbitrary unit, not matching any "physic" reality, just a factor of how "heavy" the door is to pull
-    public int doorWeight = 20;
+    public int platformWeight = 20;
 
+    [Header("Auto Movement")]
+    [SerializeField] bool isAutoMoving = false;
+    [SerializeField] int rotationDir = 1;
+    [SerializeField] Destination currentDestination = Destination.endPosition;
+    [SerializeField] public float amplitude = 1;
+    [SerializeField] public float speed = .5f;
+
+    enum Destination
+    {
+        startPosition,
+        endPosition
+    }
 
     // ================== EXTENSION FOR THE VISUAL LINE ==========================
     [Header("Visual References")]
@@ -41,6 +54,12 @@ public class PlatformInteractable : XRBaseInteractable
         m_StartPosition = draggedTransform.position;
         //m_EndPosition = m_StartPosition + m_WorldDragDirection * dragDistance;
         m_EndPosition = endPosition.position;
+
+        //auto move
+        currentDestination = Destination.endPosition;
+        amplitude += UnityEngine.Random.Range(-0.25f, 0.25f);
+        speed += UnityEngine.Random.Range(-0.25f, 0.25f);
+
 
         // ================== EXTENSION FOR THE VISUAL LINE ==========================
         handleToHandLine.gameObject.SetActive(false);
@@ -70,7 +89,7 @@ public class PlatformInteractable : XRBaseInteractable
 
             //we transform our force into a speed (by dividing it by delta Time). Then we "scale" that speed by the door
             //weight. The "heavier" the door, the lower the speed will be.
-            float speed = absoluteForce / Time.deltaTime / doorWeight;
+            float speed = absoluteForce / Time.deltaTime / platformWeight;
 
             //finally we move the target either toward end or start based on the speed.
             draggedTransform.position = Vector3.MoveTowards(draggedTransform.position,
@@ -120,4 +139,71 @@ public class PlatformInteractable : XRBaseInteractable
     }
     //============================================================================
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            other.transform.SetParent(this.transform);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.transform.SetParent(null);
+        }
+    }
+
+    private void Update()
+    {
+        if (!isSelected)
+        {
+            Debug.Log("AutoMove");
+            AutoMove();
+        }
+    }
+
+    void AutoMove()
+    {
+        Vector3 p = transform.position;
+        p.y = amplitude * Mathf.Cos(Time.time * speed);
+        transform.position = p;
+        if (!isAutoMoving)
+        {
+            isAutoMoving = true;
+            //StartCoroutine(AutoMovingCoroutine());
+
+        }
+    }
+
+    IEnumerator AutoMovingCoroutine()
+    {
+        yield return new WaitForSeconds(0.025f);
+        if (Vector3.Distance(draggedTransform.position, m_EndPosition) > 7f && currentDestination != Destination.startPosition) //to overrride this condition
+        {
+            Vector3 destination = m_EndPosition;
+            draggedTransform.position = Vector3.MoveTowards(draggedTransform.position, destination, 5 * Time.deltaTime);
+            Debug.Log("MoveTowards: m_EndPosition");
+        }
+        else
+        {
+            if(Vector3.Distance(draggedTransform.position, m_StartPosition) > .5f)
+            {
+                currentDestination = Destination.startPosition;
+                Vector3 destination = m_StartPosition;
+                draggedTransform.position = Vector3.MoveTowards(draggedTransform.position, destination, 5 * Time.deltaTime);
+                Debug.Log("MoveTowards: m_StartPosition");
+            }
+            else
+            {
+                currentDestination = Destination.endPosition;
+            }
+           
+        }
+
+       
+        isAutoMoving = false;
+
+    }
 }

@@ -57,8 +57,8 @@ public class PlatformInteractable : XRBaseInteractable
 
         //auto move
         currentDestination = Destination.endPosition;
-        amplitude += UnityEngine.Random.Range(-0.25f, 0.25f);
-        speed += UnityEngine.Random.Range(-0.25f, 0.25f);
+        //amplitude += UnityEngine.Random.Range(-0.25f, 0.25f);
+        //speed += UnityEngine.Random.Range(-0.25f, 0.25f);
 
 
         // ================== EXTENSION FOR THE VISUAL LINE ==========================
@@ -166,9 +166,7 @@ public class PlatformInteractable : XRBaseInteractable
 
     void AutoMove()
     {
-        Vector3 p = transform.position;
-        p.y = amplitude * Mathf.Cos(Time.time * speed);
-        transform.position = p;
+        transform.Translate(new Vector3(0, Mathf.Sin(Time.time) * amplitude, 0) * speed * Time.deltaTime);  
         if (!isAutoMoving)
         {
             isAutoMoving = true;

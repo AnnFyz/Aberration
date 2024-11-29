@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Effect Material
-  m_Shader: {fileID: -6465566751694194690, guid: f968e7540d632cc40b5ca8b340a3e718,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: f968e7540d632cc40b5ca8b340a3e718, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - OUTLINE_FADE_OUT
   - OUTLINE_USE_DEPTH
   - OUTLINE_USE_NORMALS
+  - RESOLUTION_INVARIANT_THICKNESS
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -45,8 +45,8 @@ Material:
     - _ColorThresholdMin: 0
     - _DepthThresholdMax: 0.1
     - _DepthThresholdMin: 0.1
-    - _FadeRangeEnd: 100
-    - _FadeRangeStart: 1
+    - _FadeRangeEnd: 150
+    - _FadeRangeStart: 0
     - _NormalThresholdMax: 2
     - _NormalThresholdMin: 0
     - _Thickness: 2
@@ -67,10 +67,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edgeColor: {r: 0.16148986, g: 0.16267356, b: 0.1792453, a: 1}
   thickness: 2
-  resolutionInvariant: 0
+  resolutionInvariant: 1
   fadeWithDistance: 1
-  fadeRangeStart: 1
-  fadeRangeEnd: 100
+  fadeRangeStart: 0
+  fadeRangeEnd: 150
   useDepth: 1
   minDepthThreshold: 0.1
   maxDepthThreshold: 0.1
@@ -83,4 +83,4 @@ MonoBehaviour:
   renderEvent: 500
   outlineOnly: 0
   applyInSceneView: 1
-  effectMaterial: {fileID: -3130267085085746722}
+  effectMaterial: {fileID: 0}

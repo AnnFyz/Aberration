@@ -13,9 +13,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - OUTLINE_FADE_OUT
-  - OUTLINE_USE_DEPTH
-  - OUTLINE_USE_NORMALS
-  - RESOLUTION_INVARIANT_THICKNESS
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -67,14 +64,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edgeColor: {r: 0.16148986, g: 0.16267356, b: 0.1792453, a: 1}
   thickness: 2
-  resolutionInvariant: 1
+  resolutionInvariant: 0
   fadeWithDistance: 1
   fadeRangeStart: 0
   fadeRangeEnd: 150
-  useDepth: 1
+  useDepth: 0
   minDepthThreshold: 0.1
   maxDepthThreshold: 0.1
-  useNormals: 1
+  useNormals: 0
   minNormalsThreshold: 0
   maxNormalsThreshold: 2
   useColor: 0
@@ -83,4 +80,4 @@ MonoBehaviour:
   renderEvent: 500
   outlineOnly: 0
   applyInSceneView: 1
-  effectMaterial: {fileID: 0}
+  effectMaterial: {fileID: -3130267085085746722}

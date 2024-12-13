@@ -17,16 +17,9 @@ public class CheckpointHandler : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("SetCurrentCheckpoint Trigger");
-        if (other.gameObject.tag == "Player")
-            CheckpointTeleporter.Instance.SetCurrentCheckpoint(checkpoint);
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("SetCurrentCheckpoint Col");
         if (collision.gameObject.tag == "Player")
         CheckpointTeleporter.Instance.SetCurrentCheckpoint(checkpoint);
     }

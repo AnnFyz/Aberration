@@ -74,7 +74,7 @@ Material:
     - _CelPrimaryEnabled: 0
     - _CelPrimaryMode: 1
     - _Cutoff: 0.5
-    - _Depth: 1
+    - _Depth: 6
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FlatRimAmount: 0.5
@@ -125,8 +125,8 @@ Material:
     - _UnityShadowMode: 1
     - _UnityShadowPower: 0.383
     - _UnityShadowSharpness: 1
-    - _UvFadeX: 0.3
-    - _UvFadeY: 0.57
+    - _UvFadeX: 0.17
+    - _UvFadeY: 0.25
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.07843137, g: 0.8111079, b: 0.99215686, a: 0.94509804}

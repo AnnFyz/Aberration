@@ -159,7 +159,6 @@ public class PlatformInteractable : XRBaseInteractable
     {
         if (!isSelected)
         {
-            Debug.Log("AutoMove");
             AutoMove();
         }
     }

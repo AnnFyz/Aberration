@@ -810,24 +810,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "MoveCompanion",
-                    "type": "Value",
-                    "id": "8543978e-e1c4-485c-b5cf-68945546b2d3",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "MakeCompanionJump",
-                    "type": "Button",
-                    "id": "67a657e4-c6a6-4392-b10f-0710a17ba65c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -850,116 +832,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6116c9af-129d-44af-9bcb-102cb6ef146a",
-                    "path": "<XRController>{LeftHand}/{TriggerButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MakeCompanionJump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c0eccae8-d978-4294-bde5-7de03ab39603",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MakeCompanionJump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "709003ef-3ccd-4b5f-9c86-acb4a67be23a",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MakeCompanionJump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6fd66492-1569-4944-b4b4-240af94a3b98",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "StickDeadzone",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "2D Vector",
-                    "id": "3fcbbcf9-26cc-4749-96e1-1d523b16ac05",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "6f17b945-f777-424e-b2e3-536bbfc916fe",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "bd4542a2-30fe-40ef-9f4d-b38af9820b30",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "0144d996-4e93-4c32-8647-59ed694701a4",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "1fbab17e-8ecb-428b-9f21-92c32d77a02b",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "0dc2f804-ecc9-4a9c-a36e-6bb2783a243b",
-                    "path": "<XRController>/joystick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveCompanion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1667,7 +1539,7 @@
                     "name": "UI Press",
                     "type": "Button",
                     "id": "65174b45-c2ee-4f90-93bb-fb4084eaaab3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -1734,24 +1606,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "MoveCompanion",
-                    "type": "Value",
-                    "id": "540b7ce1-ea58-4c07-906e-b7d659ddc466",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "MakeCompanionJump",
-                    "type": "Button",
-                    "id": "b4c5315b-cc0d-4e28-a457-6d50a082c611",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1928,50 +1782,6 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "",
                     "action": "Translate Manipulation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "33616bf6-12ba-41d0-bf51-1f73b208929d",
-                    "path": "<XRController>{RightHand}/{Primary2DAxis}",
-                    "interactions": "",
-                    "processors": "ScaleVector2(x=0),StickDeadzone",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a4995396-d1a8-4d81-b2fb-2cecf2258efe",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "StickDeadzone",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3d026886-1aa4-43f1-810a-5f2bc45fd9f2",
-                    "path": "<XRController>{RightHand}/{TriggerButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MakeCompanionJump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ca5dfb29-4c34-494c-a594-e9942e0f6a00",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MakeCompanionJump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -2955,22 +2765,13 @@
             ]
         },
         {
-            "name": "CharacterController",
-            "id": "394bf629-d7e9-4ea9-8b8f-5f80790ac0be",
+            "name": "PlayerInteraction",
+            "id": "a99b5e21-17e8-49e1-93e5-d2a0539df66f",
             "actions": [
                 {
-                    "name": "MoveCompanion",
-                    "type": "Value",
-                    "id": "2c946645-7692-462f-b67b-d803cbbebe01",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "MakeCompanionJump",
+                    "name": "Throw Value",
                     "type": "Button",
-                    "id": "2ea7bf99-e5bf-41fd-84f4-e80c4cb12f75",
+                    "id": "610e5b3a-9605-4387-ae84-f36c41634c35",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -2980,111 +2781,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "41687e18-4cd5-4b11-85e5-c57e6c1ba8f4",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "StickDeadzone",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "2D Vector",
-                    "id": "6a9c45dc-f825-4187-981b-e0e479afa108",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "NormalizeVector2",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "ffb2bcc0-96c2-4641-aae3-7bba28fd882d",
-                    "path": "<Keyboard>/w",
+                    "id": "af6135a5-ba66-4083-97f7-3785d8943628",
+                    "path": "<XRController>{RightHand}/{Trigger}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "65933b1e-76f6-4637-8ae5-cc6c5c920e05",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "f3be8711-31fc-4094-9fd5-8c6a133238ae",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "10ac163d-7e94-4395-8ecc-cf3c8efb2482",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "42baa550-0880-469f-9961-f82e25368ade",
-                    "path": "<XRController>/joystick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveCompanion",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1e0138ec-9b54-4413-8683-fcfa75abd949",
-                    "path": "<XRController>{LeftHand}/{TriggerButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MakeCompanionJump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "794e9bd4-f0b8-433f-a2f6-8ee49d8994f9",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MakeCompanionJump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8df36f77-802f-4bd8-814f-bcbf9faf114f",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MakeCompanionJump",
+                    "action": "Throw Value",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

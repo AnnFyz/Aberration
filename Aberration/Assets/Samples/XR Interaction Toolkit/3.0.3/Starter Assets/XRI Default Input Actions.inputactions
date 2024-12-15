@@ -2781,8 +2781,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "af6135a5-ba66-4083-97f7-3785d8943628",
-                    "path": "<XRController>{RightHand}/{Trigger}",
+                    "id": "190496ba-690a-47fd-817e-08d3519e724f",
+                    "path": "<XRController>{RightHand}/{TriggerButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -18,4 +18,9 @@ public class ThrowInteractable : XRBaseInteractable
     {
         
     }
+
+    //public override void AttachCustomReticle(XRBaseInteractor interactor)
+    //{
+
+    //}
 }

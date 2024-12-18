@@ -72,7 +72,7 @@ public class PlatformInteractable : XRBaseInteractable
         if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Fixed && isSelected)
         {
             var interactorTransform = firstInteractorSelecting.GetAttachTransform(this);
-            Debug.Log("GetAttachTransform");
+           
 
             //we get the vector that goes from this to the interactor
             Vector3 selfToInteractor = interactorTransform.position - transform.position;

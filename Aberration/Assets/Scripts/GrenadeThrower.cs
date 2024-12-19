@@ -9,18 +9,25 @@ public class GrenadeThrower : MonoBehaviour
     [SerializeField] GameObject grenadePrefab;
     [SerializeField] float throwForce = 40f;
     [SerializeField] CurveVisualController visualController;
-
+    [SerializeField] XRInteractorLineVisual lineVisual;
     private void Awake()
     {
         //visualController = GetComponent<CurveVisualController>();
     }
 
-    public void ThrowGrenade()
+    public void ThrowProjectile()
     {
         visualController.GetLineOriginAndDirection(out Vector3 worldOrigin, out Vector3 worldDirection);
         Debug.DrawRay(worldOrigin, worldDirection);
-        GameObject grenade = Instantiate(grenadePrefab, origin.position, origin.rotation);
-        grenade.GetComponent<Rigidbody>().AddForce(throwForce * worldDirection);
+        GameObject projectile = Instantiate(grenadePrefab, origin.position, origin.rotation);
+        projectile.GetComponent<Rigidbody>().AddForce(throwForce * worldDirection);
+        Debug.Log("Throw projectile");
+    }
+
+    public void ThrowGrenade()
+    {
+        if (!lineVisual.EvaluateReticle()) return;
+        GameObject grenade = Instantiate(grenadePrefab, lineVisual.GetReticlePos(), Quaternion.identity);
         Debug.Log("Throw grenade");
     }
 }

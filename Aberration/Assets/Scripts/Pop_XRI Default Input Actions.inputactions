@@ -1,5 +1,5 @@
 {
-    "name": "XRI Default Input Actions",
+    "name": "Pop_XRI Default Input Actions",
     "maps": [
         {
             "name": "XRI Head",
@@ -1804,7 +1804,7 @@
                     "name": "Teleport Mode Cancel",
                     "type": "Button",
                     "id": "d587b60c-39a0-4365-8075-477ce484ba0f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -2780,7 +2780,7 @@
                 {
                     "name": "ProjectileThrowing",
                     "type": "Button",
-                    "id": "419329b4-4f6b-45b3-bfbd-8aa3471770ac",
+                    "id": "82047125-bfd7-44e8-b9df-2595ddffb426",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -2790,10 +2790,10 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "dbb78859-09f6-4ac0-aef0-d4583da014fa",
+                    "id": "be3da281-b3fc-48cb-b2fc-fda7a7161e20",
                     "path": "<XRController>{RightHand}/{Primary2DAxis}",
-                    "interactions": "",
-                    "processors": "ScaleVector2(y=0),StickDeadzone",
+                    "interactions": "Sector(directions=1)",
+                    "processors": "",
                     "groups": "",
                     "action": "GrenadeThrowing",
                     "isComposite": false,
@@ -2801,7 +2801,7 @@
                 },
                 {
                     "name": "",
-                    "id": "b5592c7f-4b35-45af-ba6f-662c010ee7f8",
+                    "id": "f1ae7800-c8f2-4fd2-b8a7-961369afc8e4",
                     "path": "<XRController>{RightHand}/{TriggerButton}",
                     "interactions": "",
                     "processors": "",

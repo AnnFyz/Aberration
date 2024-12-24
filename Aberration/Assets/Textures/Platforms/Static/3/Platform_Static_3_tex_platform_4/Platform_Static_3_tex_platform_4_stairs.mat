@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Platform_Static_Cliff_1
+  m_Name: Platform_Static_3_tex_platform_4_stairs
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -32,11 +32,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: aa91f783c4e637d4f822158078b4e0e1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8b2d8f2f0ed54224eb337aeb21396100, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 2aa3f49300aab7d47bcc0dd3d2d4c087, type: 3}
+        m_Texture: {fileID: 2800000, guid: 44cfce0645598b345a8dc82213459206, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CelCurveTexture:

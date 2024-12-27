@@ -17,17 +17,17 @@ public class GrenadeThrower : MonoBehaviour
 
     public void ThrowProjectile()
     {
-        visualController.GetLineOriginAndDirection(out Vector3 worldOrigin, out Vector3 worldDirection);
-        Debug.DrawRay(worldOrigin, worldDirection);
-        GameObject projectile = Instantiate(grenadePrefab, origin.position, origin.rotation);
-        projectile.GetComponent<Rigidbody>().AddForce(throwForce * worldDirection);
+        //visualController.GetLineOriginAndDirection(out Vector3 worldOrigin, out Vector3 worldDirection);
+        //Debug.DrawRay(worldOrigin, worldDirection);
+        //GameObject projectile = Instantiate(grenadePrefab, origin.position, origin.rotation);
+        //projectile.GetComponent<Rigidbody>().AddForce(throwForce * worldDirection);
         Debug.Log("Throw projectile");
     }
 
     public void ThrowGrenade()
     {
-        if (!lineVisual.EvaluateReticle()) return;
-        GameObject grenade = Instantiate(grenadePrefab, lineVisual.GetReticlePos(), Quaternion.identity);
+        //if (!lineVisual.EvaluateReticle()) return;
+        //GameObject grenade = Instantiate(grenadePrefab, lineVisual.GetReticlePos(), Quaternion.identity);
         Debug.Log("Throw grenade");
     }
 }

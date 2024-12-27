@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9180974984822017709}
   m_Layer: 0
   m_Name: Pup
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ LODGroup:
   - screenRelativeHeight: 0.1
     fadeTransitionWidth: 0
     renderers: []
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1001 &7561239104427601878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ PrefabInstance:
     - target: {fileID: -6500066206041895943, guid: f0617bbe0387b5c44ab64bd97cce57ed, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f3a9dbb0f6dacc345a65fa8024c58264, type: 2}
+      objectReference: {fileID: 2100000, guid: 9f99eff3ab3e3f64f90bff7d9356e334, type: 2}
     - target: {fileID: -6063354155749413847, guid: f0617bbe0387b5c44ab64bd97cce57ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -14.108922

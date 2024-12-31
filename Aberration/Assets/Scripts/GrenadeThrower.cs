@@ -12,8 +12,6 @@ public class GrenadeThrower : MonoBehaviour
     [SerializeField] GameObject grenadePrefab;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float throwForce = 40f;
-    [SerializeField] CurveVisualController visualController;
-    [SerializeField] XRInteractorLineVisual lineVisual;
     [SerializeField] XRRayInteractor xrRayInteractor;
     [SerializeField] XRInteractorReticleVisual xRInteractorReticleVisual;
     public bool canPlaceGrenade = true;
@@ -44,7 +42,6 @@ public class GrenadeThrower : MonoBehaviour
         if (!xrRayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit raycastHit)) return;
         if (!xRInteractorReticleVisual.enabled) return;
         GameObject grenade = Instantiate(grenadePrefab, raycastHit.point, Quaternion.identity);
-      
     }
   
     void ActivateReticle(HoverEnterEventArgs args)

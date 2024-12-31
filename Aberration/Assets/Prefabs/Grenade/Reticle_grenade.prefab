@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ad60fed3bab20604f9d43aa504bb2254, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 37121f7c637ab684d802cbfc5bb017e0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1734159488992450542, guid: 7e337f98c41aa6f4da165d0ae5e5f569, type: 3}
     - target: {fileID: 919132149155446097, guid: 37121f7c637ab684d802cbfc5bb017e0, type: 3}
       propertyPath: m_Name
       value: dashedCircle

@@ -2774,7 +2774,7 @@
                     "id": "48e62669-2f75-457b-8d8c-9f367e6321fd",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {

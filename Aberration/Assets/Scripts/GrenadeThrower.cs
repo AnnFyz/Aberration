@@ -2,32 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactors.Visuals;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
 
 public class GrenadeThrower : MonoBehaviour
 {
     [SerializeField] Transform origin;
     [SerializeField] GameObject grenadePrefab;
+    [SerializeField] GameObject projectilePrefab;
     [SerializeField] float throwForce = 40f;
     [SerializeField] CurveVisualController visualController;
     [SerializeField] XRInteractorLineVisual lineVisual;
-    private void Awake()
+    [SerializeField] XRRayInteractor xrRayInteractor;
+    [SerializeField] XRInteractorReticleVisual xRInteractorReticleVisual;
+    public bool canPlaceGrenade = true;
+    private void Start()
     {
-        //visualController = GetComponent<CurveVisualController>();
+        xRInteractorReticleVisual.enabled = false;
+        canPlaceGrenade = true;
     }
 
-    public void ThrowProjectile()
+    private void OnEnable()
     {
-        //visualController.GetLineOriginAndDirection(out Vector3 worldOrigin, out Vector3 worldDirection);
-        //Debug.DrawRay(worldOrigin, worldDirection);
-        //GameObject projectile = Instantiate(grenadePrefab, origin.position, origin.rotation);
-        //projectile.GetComponent<Rigidbody>().AddForce(throwForce * worldDirection);
-        Debug.Log("Throw projectile");
+        xrRayInteractor.hoverEntered.AddListener(ActivateReticle);
+        xrRayInteractor.hoverExited.AddListener(DeactivateReticle);
+    }
+
+    public void ThrowProjectile(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            GameObject projectile = Instantiate(projectilePrefab, origin.position, origin.rotation);
+            projectile.GetComponent<Rigidbody>().AddForce(throwForce * origin.transform.forward);
+        }
+         
     }
 
     public void ThrowGrenade()
     {
-        //if (!lineVisual.EvaluateReticle()) return;
-        //GameObject grenade = Instantiate(grenadePrefab, lineVisual.GetReticlePos(), Quaternion.identity);
-        Debug.Log("Throw grenade");
+        if (!xrRayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit raycastHit)) return;
+        if (!xRInteractorReticleVisual.enabled) return;
+        GameObject grenade = Instantiate(grenadePrefab, raycastHit.point, Quaternion.identity);
+      
+    }
+  
+    void ActivateReticle(HoverEnterEventArgs args)
+    {
+        xRInteractorReticleVisual.enabled = true;
+    }
+
+    void DeactivateReticle(HoverExitEventArgs args)
+    {
+        xRInteractorReticleVisual.enabled = false;
     }
 }

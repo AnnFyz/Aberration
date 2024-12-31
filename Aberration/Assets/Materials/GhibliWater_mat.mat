@@ -42,9 +42,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0.45
-    - _ColFoamAmount: 2
+    - _ColFoamAmount: 0.5
     - _ColFoamCutoff: 1
-    - _ColFoamSize: 2
+    - _ColFoamSize: 20
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RefractionOpacity: 1
@@ -53,7 +53,7 @@ Material:
     - _WaveSpeed: 0.3
     - _foamScale: 200
     - _maskScale: 0.043
-    - _speed: 1
+    - _speed: 0.5
     m_Colors:
     - _BorderColor: {r: 0.18136454, g: 4.1792803, b: 3.8653076, a: 1}
     - _ColFoamColor: {r: 0.8370416, g: 1.7924528, b: 1.4563893, a: 1}

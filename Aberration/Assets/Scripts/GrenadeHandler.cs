@@ -5,26 +5,35 @@ using UnityEngine;
 public class GrenadeHandler : MonoBehaviour
 {
     [SerializeField] GameObject particlesPrefab;
-    [SerializeField] float explosionDelay = 1f;
+    [SerializeField] GameObject fallingGrenadeVisual;
+    [SerializeField] float explosionDelay = 5f;
 
     private void Awake()
     {
         particlesPrefab.SetActive(false);
+        fallingGrenadeVisual.SetActive(true);
+        StartCoroutine(LiveTimeCountdown());
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Damage")
         {
-            particlesPrefab.SetActive(true);
-            GetComponent<MeshRenderer>().enabled = false;
+            StopCoroutine(LiveTimeCountdown());
             StartCoroutine(StartExplosion());
+            particlesPrefab.SetActive(true);
+            fallingGrenadeVisual.SetActive(false);
         }
     }
-    IEnumerator StartExplosion()
+
+    IEnumerator LiveTimeCountdown()
     {
         yield return new WaitForSeconds(explosionDelay);
         Destroy(this.gameObject);
     }
 
-  
+    IEnumerator StartExplosion()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
+    }
 }

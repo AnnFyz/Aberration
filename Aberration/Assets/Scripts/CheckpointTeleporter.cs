@@ -25,6 +25,7 @@ public class CheckpointTeleporter : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             other.gameObject.transform.position = currentCheckpoint.position;
+            Debug.Log("Teleport");
         }
     }
 

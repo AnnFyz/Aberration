@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheckpointTeleporter : MonoBehaviour
 {
     [SerializeField] Transform currentCheckpoint;
+    [SerializeField] GameObject player;
     public static CheckpointTeleporter Instance { get; private set; }
 
     private void Awake()
@@ -20,12 +21,22 @@ public class CheckpointTeleporter : MonoBehaviour
             Instance = this;
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            player.GetComponent<CharacterController>().enabled = false;
+            player.transform.position = currentCheckpoint.position;
+            player.GetComponent<CharacterController>().enabled = true;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.transform.position = currentCheckpoint.position;
-            Debug.Log("Teleport");
+            player.GetComponent<CharacterController>().enabled = false;
+            player.gameObject.transform.position = currentCheckpoint.position;
+            player.GetComponent<CharacterController>().enabled = true;
         }
     }
 

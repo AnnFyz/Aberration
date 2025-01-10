@@ -14524,6 +14524,7 @@ GameObject:
   - component: {fileID: 3111676273768157581}
   - component: {fileID: 8484651648466223418}
   - component: {fileID: 3520941292614240533}
+  - component: {fileID: 4377775608570800278}
   m_Layer: 9
   m_Name: Projectile
   m_TagString: Damage
@@ -14613,7 +14614,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 512
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -14658,9 +14659,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c904058512738145a49546183e2e13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutoDestroyTime: 5
   startParticlesPrefab: {fileID: 4501399834746558140}
   explosionParticlesPrefab: {fileID: 5379729823683201185}
   explosionDelay: 5
+--- !u!135 &4377775608570800278
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595871469026149398}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.03
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4826847224786050968
 PrefabInstance:
   m_ObjectHideFlags: 0

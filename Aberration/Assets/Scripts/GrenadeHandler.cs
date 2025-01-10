@@ -27,6 +27,17 @@ public class GrenadeHandler : AutoDestroyPoolableObject
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Damage")
+        {
+            //StopCoroutine(LiveTimeCountdown());
+            //StartCoroutine(StartExplosion());
+            particlesPrefab.SetActive(true);
+
+        }
+
+    }
     //IEnumerator LiveTimeCountdown()
     //{
     //    yield return new WaitForSeconds(explosionDelay);

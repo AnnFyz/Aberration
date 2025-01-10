@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Checkpoint
   - Damage
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - PostProcessing
   - Placeable
   - Projectile
-  - 
+  - StaticPlatform
   - 
   - 
   - 

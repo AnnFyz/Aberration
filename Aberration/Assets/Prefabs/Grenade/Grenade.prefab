@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3111676273768157581}
   - component: {fileID: 8484651648466223418}
   - component: {fileID: 1533068007432212093}
+  - component: {fileID: 7876407225039945555}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Damage
@@ -104,7 +105,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -149,9 +150,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d08ba11407d5b8498f211706e4b06f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutoDestroyTime: 5
   particlesPrefab: {fileID: 3082304314956260187}
   fallingGrenadeVisual: {fileID: 4837212824110899314}
   explosionDelay: 5
+--- !u!135 &7876407225039945555
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595871469026149398}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1691778654011377152
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4582842753186198208}
   m_Layer: 0
-  m_Name: Reticle_grenade 1
+  m_Name: Reticle_grenade_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

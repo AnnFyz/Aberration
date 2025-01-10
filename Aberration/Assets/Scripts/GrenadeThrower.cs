@@ -15,6 +15,14 @@ public class GrenadeThrower : MonoBehaviour
     [SerializeField] XRRayInteractor xrRayInteractor;
     [SerializeField] XRInteractorReticleVisual xRInteractorReticleVisual;
     public bool canPlaceGrenade = true;
+    public ObjectPool grenadePool;
+    public ObjectPool projectilePool;
+
+    private void Awake()
+    {
+        grenadePool = ObjectPool.CreateInstance(grenadePrefab.GetComponent<GrenadeHandler>(), 100);
+        projectilePool = ObjectPool.CreateInstance(projectilePrefab.GetComponent<ProjectileHandler>(), 100);
+    }
     private void Start()
     {
         xRInteractorReticleVisual.enabled = false;
@@ -31,8 +39,17 @@ public class GrenadeThrower : MonoBehaviour
     {
         if (context.started)
         {
-            GameObject projectile = Instantiate(projectilePrefab, origin.position, origin.rotation);
-            projectile.GetComponent<Rigidbody>().AddForce(throwForce * origin.transform.forward);
+            //GameObject projectile = Instantiate(projectilePrefab, origin.position, origin.rotation);
+            //projectile.GetComponent<Rigidbody>().AddForce(throwForce * origin.transform.forward);
+
+            PoolableObject instance = projectilePool.GetObject();
+            if (instance != null)
+            {
+                //instance.transform.SetParent(transform, false);
+                instance.transform.position = origin.position;
+                instance.transform.rotation = origin.rotation;
+                instance.GetComponent<Rigidbody>().AddForce(throwForce * origin.transform.forward);
+            }
         }
          
     }
@@ -41,7 +58,15 @@ public class GrenadeThrower : MonoBehaviour
     {
         if (!xrRayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit raycastHit)) return;
         if (!xRInteractorReticleVisual.enabled) return;
-        GameObject grenade = Instantiate(grenadePrefab, raycastHit.point, Quaternion.identity);
+        //GameObject grenade = Instantiate(grenadePrefab, raycastHit.point, Quaternion.identity);
+
+        PoolableObject instance = grenadePool.GetObject();
+        if (instance != null)
+        {
+            //instance.transform.SetParent(transform, false);
+            instance.transform.position = raycastHit.point;
+            instance.transform.rotation = Quaternion.identity;
+        }
     }
   
     void ActivateReticle(HoverEnterEventArgs args)

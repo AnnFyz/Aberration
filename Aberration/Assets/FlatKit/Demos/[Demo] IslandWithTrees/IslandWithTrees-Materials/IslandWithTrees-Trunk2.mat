@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords:
   - DR_CEL_EXTRA_ON
   - DR_GRADIENT_ON
+  - DR_RIM_ON
   - _CELPRIMARYMODE_SINGLE
   - _DETAILMAPBLENDINGMODE_MULTIPLY
   - _GRADIENTSPACE_WORLD
@@ -102,10 +103,10 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FlatRimAmount: 0.5
-    - _FlatRimEdgeSmoothness: 0.5
+    - _FlatRimEdgeSmoothness: 0.044
     - _FlatRimEnabled: 1
-    - _FlatRimLightAlign: 0
-    - _FlatRimSize: 0.417
+    - _FlatRimLightAlign: 0.164
+    - _FlatRimSize: 0.561
     - _FlatShadowsEnabled: 1
     - _FlatSmoothness: 0.362
     - _FlatSpecularEdgeSmoothness: 0.897
@@ -143,7 +144,7 @@ Material:
     - _OverrideShadowsEnabled: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
-    - _RimEnabled: 0
+    - _RimEnabled: 1
     - _SecondaryColor: 1
     - _SecondaryColorEnabled: 1
     - _SelfShadingSize: 0
@@ -181,7 +182,7 @@ Material:
     - _ColorShadows: {r: 0.19742335, g: 0.11854753, b: 0.2264151, a: 1}
     - _DetailMapColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 4.9245777, g: 0, b: 0, a: 1}
-    - _FlatRimColor: {r: 0.34317765, g: 0.27247238, b: 0.36792448, a: 1}
+    - _FlatRimColor: {r: 0.027436819, g: 0.024697408, b: 0.028301895, a: 1}
     - _FlatSpecularColor: {r: 0.5213154, g: 0.6236126, b: 0.6698113, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}

@@ -8,9 +8,11 @@ public class CompanionCharacterController : MonoBehaviour
     CompanionControls companionControls;
     CharacterController characterController;
     Animator animator;
+    [SerializeField] GameObject popMesh;
+    [SerializeField] FlatKit.OutlineSettings outline;
 
-    //movement
-    [Header("Movemet")]
+  //movement
+  [Header("Movemet")]
     [SerializeField] float movementSpeed = 10.0f;
     [SerializeField] float rotationFactorPerFrame = 15.0f;
 
@@ -63,6 +65,10 @@ public class CompanionCharacterController : MonoBehaviour
 
         HandleGravity();
         HandleJump();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log(popMesh.GetComponent<Material>().GetTexturePropertyNameIDs());
+        }
 
     }
 

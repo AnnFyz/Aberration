@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class EnemyHandler : PoolableObject
+public class EnemyHandler : AutoDestroyPoolableObject
 {
     [SerializeField] GameObject explosionParticlesPrefab;
     [SerializeField] float explosionDelay = 5f;
@@ -16,7 +16,10 @@ public class EnemyHandler : PoolableObject
         explosionParticlesPrefab.SetActive(false);
         Movement = GetComponent<EnemyMovement>();
         Agent = GetComponent<NavMeshAgent>();
+        setAutoDestroyTime(1);
     }
+
+
     //private void OnTriggerEnter(Collider other)
     //{
     //    if(other.gameObject.tag == "Damage")
@@ -50,5 +53,10 @@ public class EnemyHandler : PoolableObject
         base.OnDisable();
 
         Agent.enabled = false;
+    }
+
+    public override void setAutoDestroyTime(float newTime)
+    {
+        base.setAutoDestroyTime(newTime);
     }
 }

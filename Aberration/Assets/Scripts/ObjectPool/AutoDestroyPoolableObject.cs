@@ -1,8 +1,16 @@
+using UnityEngine;
+
 public class AutoDestroyPoolableObject : PoolableObject
 {
     public float AutoDestroyTime = 5f;
 
     private const string DisableMethodName = "Disable";
+
+    public virtual void setAutoDestroyTime(float newTime)
+    {
+        AutoDestroyTime = newTime;
+        Debug.Log("AutoDestroyTime: " + newTime);
+    }
 
     public virtual void OnEnable()
     {

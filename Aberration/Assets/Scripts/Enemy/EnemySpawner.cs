@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform Player;
     public int NumberOfEnemiesToSpawn = 5;
     public float SpawnDelay = 1f;
-    public List<EnemyHandler> EnemyPrefabs = new List<EnemyHandler>();
+    public List<EnemyMovement> EnemyPrefabs = new List<EnemyMovement>();
     public SpawnMethod EnemySpawnMethod = SpawnMethod.RoundRobin;
 
     private NavMeshTriangulation Triangulation;
@@ -70,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (poolableObject != null)
         {
-            EnemyHandler enemy = poolableObject.GetComponent<EnemyHandler>();
+            EnemyMovement enemy = poolableObject.GetComponent<EnemyMovement>();
 
             int VertexIndex = Random.Range(0, Triangulation.vertices.Length);
 
@@ -79,9 +79,9 @@ public class EnemySpawner : MonoBehaviour
             {
                 enemy.Agent.Warp(Hit.position);
                 // enemy needs to get enabled and start chasing now.
-                enemy.Movement.Player = Player;
+                enemy.Player = Player;
                 enemy.Agent.enabled = true;
-                enemy.Movement.StartChasing();
+                enemy.StartMovement();
             }
             else
             {
@@ -101,4 +101,5 @@ public class EnemySpawner : MonoBehaviour
         Random
         // Other spawn methods can be added here
     }
+
 }

@@ -8,7 +8,7 @@ public class EnemyMovement : PoolableObject
     public Transform Player;
     public float UpdateRate = 0.1f;
     public UnityEngine.AI.NavMeshAgent Agent;
-
+    public EnemyLineOfSightChecker LineOfSightChecker;
     private Coroutine FollowCoroutine;
 
     public float IdleLocationRadius = 4f; //radius of sphere
@@ -40,6 +40,8 @@ public class EnemyMovement : PoolableObject
         centerPoint = transform;
         OnStateChange += HandleStateChange;
         Agent.avoidancePriority = Random.Range(1, 50);
+        LineOfSightChecker.OnGainSight += HandleGainSight;
+        LineOfSightChecker.OnLoseSight += HandleLoseSight;
     }
 
 
@@ -123,6 +125,16 @@ public class EnemyMovement : PoolableObject
             }
             yield return Wait;
         }
+    }
+
+    private void HandleGainSight(CompanionCharacterController player)
+    {
+        State = EnemyState.Chase;
+    }
+
+    private void HandleLoseSight(CompanionCharacterController player)
+    {
+        State = DefaultState;
     }
 
 

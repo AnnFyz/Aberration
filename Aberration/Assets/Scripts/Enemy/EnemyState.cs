@@ -5,5 +5,6 @@ public enum EnemyState
 {
     Spawn,
     Idle,
-    Chase
+    Chase,
+    Attack
 }

@@ -5,19 +5,27 @@ using UnityEngine.AI; //important
 
 public class EnemyMovement : PoolableObject
 {
+    [Header("Movemet")]
     public Transform Player;
     public float UpdateRate = 0.1f;
     public UnityEngine.AI.NavMeshAgent Agent;
     public EnemyLineOfSightChecker LineOfSightChecker;
     private Coroutine FollowCoroutine;
 
-    public float IdleLocationRadius = 4f; //radius of sphere
-    public float IdleMovespeedMultiplier = 0.5f;
-    public Transform centerPoint; //centre of the area the agent wants to move around in
-    //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
-
+    [Header("State settings")]
     public EnemyState DefaultState;
-    private EnemyState _state;
+    [SerializeField] GameObject chasingSign;
+    [SerializeField] GameObject attackingParticles;
+    [SerializeField] float chasingSpeed;
+    [SerializeField] float attackingDistance = 5f;
+
+    [Header("Idle")]
+    public float IdleLocationRadius = 4f; //radius of sphere
+    public float idleSpeed;
+    public Transform centerPoint; //centre of the area the agent wants to move around in
+
+
+    [SerializeField] EnemyState _state;
     public EnemyState State
     {
         get
@@ -37,13 +45,21 @@ public class EnemyMovement : PoolableObject
     private void Awake()
     {
         Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        //instead of centrePoint it can be set as the transform of the agent if you don't care about a specific area
         centerPoint = transform;
         OnStateChange += HandleStateChange;
         Agent.avoidancePriority = Random.Range(1, 50);
         LineOfSightChecker.OnGainSight += HandleGainSight;
         LineOfSightChecker.OnLoseSight += HandleLoseSight;
+        chasingSign.SetActive(false);
+        attackingParticles.SetActive(false);
     }
 
+    private void Start()
+    {
+        idleSpeed = Agent.speed * 1f;
+        chasingSpeed = Agent.speed * 1.5f;
+    }
 
     public void StartMovement()
     {
@@ -60,19 +76,15 @@ public class EnemyMovement : PoolableObject
                 StopCoroutine(FollowCoroutine);
             }
 
-            if (oldState == EnemyState.Idle)
-            {
-                Agent.speed /= IdleMovespeedMultiplier;
-            }
-
+  
             switch (newState)
             {
                 case EnemyState.Idle:
                     FollowCoroutine = StartCoroutine(DoIdleMotion());
                     break;
-                //case EnemyState.Patrol:
-                //    FollowCoroutine = StartCoroutine(DoPatrolMotion());
-                //    break;
+                case EnemyState.Attack:
+                    FollowCoroutine = StartCoroutine(AttackTarget());
+                    break;
                 case EnemyState.Chase:
                     FollowCoroutine = StartCoroutine(FollowTarget());
                     break;
@@ -84,9 +96,8 @@ public class EnemyMovement : PoolableObject
     {
         WaitForSeconds Wait = new WaitForSeconds(UpdateRate);
 
-        Agent.speed *= IdleMovespeedMultiplier;
-
-       
+        Agent.speed  = idleSpeed;
+        Debug.Log("IDLE");
 
         while (true)
         {
@@ -115,26 +126,70 @@ public class EnemyMovement : PoolableObject
 
     private IEnumerator FollowTarget()
     {
+        Debug.Log("FollowTarget");
         WaitForSeconds Wait = new WaitForSeconds(UpdateRate);
-
-        while (true)
+        Agent.speed = chasingSpeed;
+        if (Vector3.Distance(transform.position, Player.transform.position) < attackingDistance)
         {
-            if (Agent.enabled)
-            {
-                Agent.SetDestination(Player.transform.position);
-            }
+            attackingParticles.SetActive(true);
+            State = EnemyState.Attack;
             yield return Wait;
         }
+        else
+        {
+            while (true)
+            {
+                if (Agent.enabled)
+                {
+                    Agent.SetDestination(Player.transform.position);
+
+                }
+                yield return Wait;
+            }
+
+        }
+
+
+    }
+
+    private IEnumerator AttackTarget()
+    {
+        Debug.Log("Attack");
+        WaitForSeconds Wait = new WaitForSeconds(UpdateRate);
+        if (Vector3.Distance(transform.position, Player.transform.position) > attackingDistance)
+        {
+            attackingParticles.SetActive(false);
+            State = EnemyState.Chase;
+            yield return Wait;
+        }
+
+        else
+        {
+            while (true)
+            {
+                if (Agent.enabled)
+                {
+                    Agent.SetDestination(Player.transform.position);
+
+                }
+                yield return Wait;
+            }
+        }
+
     }
 
     private void HandleGainSight(CompanionCharacterController player)
     {
+        chasingSign.SetActive(true);
         State = EnemyState.Chase;
     }
 
     private void HandleLoseSight(CompanionCharacterController player)
     {
+        attackingParticles.SetActive(false);
+        chasingSign.SetActive(false);
         State = DefaultState;
+       
     }
 
 

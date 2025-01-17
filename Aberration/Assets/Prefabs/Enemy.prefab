@@ -5683,8 +5683,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.9999308, z: 0.011763462, w: 0}
   m_LocalPosition: {x: 0, y: -2.59, z: -3.6800003}
-  m_LocalScale: {x: 0.71716046, y: 0.71716017, z: 0.71716017}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1647728836711508748}
   - {fileID: 2201820050941262429}
@@ -5836,10 +5836,15 @@ MonoBehaviour:
   UpdateRate: 0.1
   Agent: {fileID: 0}
   LineOfSightChecker: {fileID: 7487759528783055878}
-  IdleLocationRadius: 4
-  IdleMovespeedMultiplier: 0.5
-  centerPoint: {fileID: 0}
   DefaultState: 1
+  chasingSign: {fileID: 1242876607674015713}
+  attackingParticles: {fileID: 2398649508704027898}
+  chasingSpeed: 1.5
+  attackingDistance: 5
+  IdleLocationRadius: 4
+  idleSpeed: 1
+  centerPoint: {fileID: 0}
+  _state: 0
 --- !u!135 &7255273694460524193
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5859,7 +5864,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3.35
+  m_Radius: 4.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7487759528783055878
 MonoBehaviour:
@@ -6215,6 +6220,11 @@ PrefabInstance:
 --- !u!4 &1647728836711508748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2912856315313457234, guid: 9cc7639203d9eaf4aab22bd47b689b91, type: 3}
+  m_PrefabInstance: {fileID: 4517501609094701918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2398649508704027898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2303825140575659940, guid: 9cc7639203d9eaf4aab22bd47b689b91, type: 3}
   m_PrefabInstance: {fileID: 4517501609094701918}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9210667169594092144

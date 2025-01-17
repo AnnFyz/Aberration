@@ -8,6 +8,7 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] float explosionDelay = 5f;
     [SerializeField] GameObject mesh;
     [SerializeField] int health = 100;
+
     public EnemyMovement Movement;
     public NavMeshAgent Agent;
     private void Awake()

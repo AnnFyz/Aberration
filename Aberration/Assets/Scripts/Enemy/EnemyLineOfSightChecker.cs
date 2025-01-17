@@ -60,13 +60,8 @@ public class EnemyLineOfSightChecker : MonoBehaviour
             {
                 if (Hit.transform.GetComponent<CompanionCharacterController>() != null)
                 {
-                    Debug.Log("OnGainSight");
                     OnGainSight?.Invoke(player);
                     return true;
-                }
-                else
-                {
-                    Debug.Log("Hit.transform: " + Hit.transform);
                 }
             }
         }

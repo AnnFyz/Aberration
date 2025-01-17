@@ -53,7 +53,7 @@ Material:
     - _WaveSpeed: 0.1
     - _foamScale: 200
     - _maskScale: 0.043
-    - _speed: 0.25
+    - _speed: -1
     m_Colors:
     - _BorderColor: {r: 0.18136454, g: 4.1792803, b: 3.8653076, a: 1}
     - _ColFoamColor: {r: 0.8370416, g: 1.7924528, b: 1.4563893, a: 1}

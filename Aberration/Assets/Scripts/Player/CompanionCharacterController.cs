@@ -12,7 +12,7 @@ public class CompanionCharacterController : MonoBehaviour
     [SerializeField] FlatKit.OutlineSettings outline;
 
   //movement
-  [Header("Movemet")]
+    [Header("Movemet")]
     [SerializeField] float movementSpeed = 10.0f;
     [SerializeField] float rotationFactorPerFrame = 15.0f;
 

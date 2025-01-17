@@ -58,7 +58,7 @@ public class EnemyMovement : PoolableObject
     private void Start()
     {
         idleSpeed = Agent.speed * 1f;
-        chasingSpeed = Agent.speed * 1.5f;
+        chasingSpeed = Agent.speed * 10f;
     }
 
     public void StartMovement()
@@ -82,9 +82,6 @@ public class EnemyMovement : PoolableObject
                 case EnemyState.Idle:
                     FollowCoroutine = StartCoroutine(DoIdleMotion());
                     break;
-                case EnemyState.Attack:
-                    FollowCoroutine = StartCoroutine(AttackTarget());
-                    break;
                 case EnemyState.Chase:
                     FollowCoroutine = StartCoroutine(FollowTarget());
                     break;
@@ -97,7 +94,6 @@ public class EnemyMovement : PoolableObject
         WaitForSeconds Wait = new WaitForSeconds(UpdateRate);
 
         Agent.speed  = idleSpeed;
-        Debug.Log("IDLE");
 
         while (true)
         {
@@ -126,17 +122,8 @@ public class EnemyMovement : PoolableObject
 
     private IEnumerator FollowTarget()
     {
-        Debug.Log("FollowTarget");
         WaitForSeconds Wait = new WaitForSeconds(UpdateRate);
         Agent.speed = chasingSpeed;
-        if (Vector3.Distance(transform.position, Player.transform.position) < attackingDistance)
-        {
-            attackingParticles.SetActive(true);
-            State = EnemyState.Attack;
-            yield return Wait;
-        }
-        else
-        {
             while (true)
             {
                 if (Agent.enabled)
@@ -147,37 +134,10 @@ public class EnemyMovement : PoolableObject
                 yield return Wait;
             }
 
-        }
+        
 
 
     }
-
-    private IEnumerator AttackTarget()
-    {
-        Debug.Log("Attack");
-        WaitForSeconds Wait = new WaitForSeconds(UpdateRate);
-        if (Vector3.Distance(transform.position, Player.transform.position) > attackingDistance)
-        {
-            attackingParticles.SetActive(false);
-            State = EnemyState.Chase;
-            yield return Wait;
-        }
-
-        else
-        {
-            while (true)
-            {
-                if (Agent.enabled)
-                {
-                    Agent.SetDestination(Player.transform.position);
-
-                }
-                yield return Wait;
-            }
-        }
-
-    }
-
     private void HandleGainSight(CompanionCharacterController player)
     {
         chasingSign.SetActive(true);

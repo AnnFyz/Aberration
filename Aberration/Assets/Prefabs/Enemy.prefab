@@ -5839,7 +5839,7 @@ MonoBehaviour:
   DefaultState: 1
   chasingSign: {fileID: 1242876607674015713}
   attackingParticles: {fileID: 2398649508704027898}
-  chasingSpeed: 1.5
+  chasingSpeed: 3
   attackingDistance: 5
   IdleLocationRadius: 4
   idleSpeed: 1
@@ -5864,7 +5864,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4.5
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7487759528783055878
 MonoBehaviour:
@@ -5879,7 +5879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collider: {fileID: 7255273694460524193}
-  FieldOfView: 90
+  FieldOfView: 180
   LineOfSightLayers:
     serializedVersion: 2
     m_Bits: 2048

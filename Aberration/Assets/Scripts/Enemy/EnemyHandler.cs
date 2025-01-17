@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,12 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] GameObject explosionParticlesPrefab;
     [SerializeField] float explosionDelay = 5f;
     [SerializeField] GameObject mesh;
-    [SerializeField] int health = 100;
+    [SerializeField] float maxHealth = 100;
+    [SerializeField] float currentHealth = 100;
 
     public EnemyMovement Movement;
     public NavMeshAgent Agent;
+    public Action OnEnemyDeath;
     private void Awake()
     {
         mesh.SetActive(true);
@@ -19,15 +22,30 @@ public class EnemyHandler : MonoBehaviour
         Agent = GetComponent<NavMeshAgent>();
     }
 
-
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Damage")
         {
+            ApplyDamage(50);
+           
+        }
+    }
+
+    void ApplyDamage(float damage)
+    {
+        currentHealth -= damage;
+        if(currentHealth <= 0)
+        {
+            EnemyManager.Instance.CurrentAmountOfEnemies -= 1;
+            Debug.Log("Enemy is dead");
             mesh.SetActive(false);
             explosionParticlesPrefab.SetActive(true);
             StartCoroutine(StartExplosion());
-            Debug.Log("Exploded!!!");
+            Movement.State = EnemyState.Dead;
         }
     }
 

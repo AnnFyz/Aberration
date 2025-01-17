@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
         {
             EnemyObjectPools.Add(i, ObjectPool.CreateInstance(EnemyPrefabs[i], NumberOfEnemiesToSpawn));
         }
+
     }
 
     private void Start()
@@ -28,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
 
         StartCoroutine(SpawnEnemies());
     }
+
 
     private IEnumerator SpawnEnemies()
     {
@@ -61,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnRandomEnemy()
     {
-        DoSpawnEnemy(Random.Range(0, EnemyPrefabs.Count));
+        DoSpawnEnemy(UnityEngine.Random.Range(0, EnemyPrefabs.Count));
     }
 
     private void DoSpawnEnemy(int SpawnIndex)
@@ -72,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
         {
             EnemyMovement enemy = poolableObject.GetComponent<EnemyMovement>();
 
-            int VertexIndex = Random.Range(0, Triangulation.vertices.Length);
+            int VertexIndex = UnityEngine.Random.Range(0, Triangulation.vertices.Length);
 
             NavMeshHit Hit;
             if (NavMesh.SamplePosition(Triangulation.vertices[VertexIndex], out Hit, 2f, -1))

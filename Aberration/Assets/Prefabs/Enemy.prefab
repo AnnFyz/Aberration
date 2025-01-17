@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5476475056447921732}
   - component: {fileID: 3864672296592908792}
   - component: {fileID: 2103280788034013415}
+  - component: {fileID: 3560208719449160121}
   m_Layer: 0
   m_Name: ChasingSign
   m_TagString: Untagged
@@ -133,6 +134,22 @@ MonoBehaviour:
   lockX: 0
   lockY: 0
   lockZ: 0
+--- !u!114 &3560208719449160121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242876607674015713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20cbb736791e6cd428b4892339987a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desiredDuration: 3
+  percentageComplete: 0
+  maxScale: {x: 0, y: 0, z: 0}
+  minScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1326355899283517957
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +645,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 580308318137167335}
   m_LocalEulerAnglesHint: {x: -2.498, y: -180, z: 0.704}
+--- !u!1 &4055679873440744197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7489558274822024944}
+  - component: {fileID: 3618033393573679195}
+  - component: {fileID: 3237239505444137582}
+  m_Layer: 0
+  m_Name: AttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7489558274822024944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055679873440744197}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1647728836711508748}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!136 &3618033393573679195
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055679873440744197}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 2.59
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3237239505444137582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4055679873440744197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16730094fb65aae41b40abff53f61788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4390004112200945286
 GameObject:
   m_ObjectHideFlags: 0
@@ -5747,7 +5832,8 @@ MonoBehaviour:
   explosionParticlesPrefab: {fileID: 9050674312438126416}
   explosionDelay: 5
   mesh: {fileID: 3611969312962697882}
-  health: 100
+  maxHealth: 100
+  currentHealth: 100
   Movement: {fileID: 6294827916146893565}
   Agent: {fileID: 0}
 --- !u!135 &6119738932057039173
@@ -6122,7 +6208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2303825140575659940, guid: 9cc7639203d9eaf4aab22bd47b689b91, type: 3}
       propertyPath: m_Name
-      value: MagicBuffYellow
+      value: AttackMagicBuffYellow
       objectReference: {fileID: 0}
     - target: {fileID: 2303825140575659940, guid: 9cc7639203d9eaf4aab22bd47b689b91, type: 3}
       propertyPath: m_IsActive
@@ -6214,7 +6300,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2912856315313457234, guid: 9cc7639203d9eaf4aab22bd47b689b91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7489558274822024944}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cc7639203d9eaf4aab22bd47b689b91, type: 3}
 --- !u!4 &1647728836711508748 stripped

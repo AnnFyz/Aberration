@@ -69,10 +69,11 @@ public class EnemyMovement : PoolableObject
 
     private void HandleStateChange(EnemyState oldState, EnemyState newState)
     {
+
         if (oldState != newState)
         {
             if (FollowCoroutine != null)
-            {
+            { 
                 StopCoroutine(FollowCoroutine);
             }
 
@@ -84,6 +85,10 @@ public class EnemyMovement : PoolableObject
                     break;
                 case EnemyState.Chase:
                     FollowCoroutine = StartCoroutine(FollowTarget());
+                    break;
+                case EnemyState.Dead:
+                    attackingParticles.SetActive(false);
+                    chasingSign.SetActive(false);
                     break;
             }
         }

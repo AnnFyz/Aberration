@@ -27,7 +27,18 @@ public class EnemyLineOfSightChecker : MonoBehaviour
         CompanionCharacterController player;
         if (other.TryGetComponent<CompanionCharacterController>(out player))
         {
-            //Debug.Log("TryGetComponent<CompanionCharacterController>");
+            if (!CheckLineOfSight(player))
+            {
+                CheckForLineOfSightCoroutine = StartCoroutine(CheckForLineOfSight(player));
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        CompanionCharacterController player;
+        if (other.TryGetComponent<CompanionCharacterController>(out player))
+        {
             if (!CheckLineOfSight(player))
             {
                 CheckForLineOfSightCoroutine = StartCoroutine(CheckForLineOfSight(player));
@@ -40,6 +51,7 @@ public class EnemyLineOfSightChecker : MonoBehaviour
         CompanionCharacterController player;
         if (other.TryGetComponent<CompanionCharacterController>(out player))
         {
+            Debug.Log("OnLoseSight");
             OnLoseSight?.Invoke(player);
             if (CheckForLineOfSightCoroutine != null)
             {
@@ -60,6 +72,7 @@ public class EnemyLineOfSightChecker : MonoBehaviour
             {
                 if (Hit.transform.GetComponent<CompanionCharacterController>() != null)
                 {
+                    Debug.Log("OnGainSight");
                     OnGainSight?.Invoke(player);
                     return true;
                 }

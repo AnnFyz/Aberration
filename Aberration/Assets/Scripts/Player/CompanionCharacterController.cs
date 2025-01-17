@@ -56,7 +56,7 @@ public class CompanionCharacterController : MonoBehaviour
 
         SetupJumpVariables();
     }
-    
+
     private void Update()
     {
         HandleRotation();

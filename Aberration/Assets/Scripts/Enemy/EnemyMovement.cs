@@ -124,6 +124,14 @@ public class EnemyMovement : PoolableObject
     {
         WaitForSeconds Wait = new WaitForSeconds(UpdateRate);
         Agent.speed = chasingSpeed;
+        if(Vector3.Distance(transform.position, Player.position) < 5f)
+        {
+            attackingParticles.SetActive(true);
+        }
+        else
+        {
+            attackingParticles.SetActive(false);
+        }
             while (true)
             {
                 if (Agent.enabled)
@@ -133,10 +141,14 @@ public class EnemyMovement : PoolableObject
                 }
                 yield return Wait;
             }
+    }
 
-        
-
-
+    private void FaceTarget(Vector3 destination)
+    {
+        Vector3 lookPos = destination - transform.position;
+        lookPos.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = rotation;
     }
     private void HandleGainSight(CompanionCharacterController player)
     {

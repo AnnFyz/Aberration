@@ -19,6 +19,7 @@ Material:
   - _OUTLINESPACE_SCREEN
   - _TEXTUREBLENDINGMODE_MULTIPLY
   - _UNITYSHADOWMODE_MULTIPLY
+  - _UNITYSHADOW_OCCLUSION
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,11 +33,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 8ab34c8f9f5cc1046b2629a188242994, type: 3}
+        m_Texture: {fileID: 2800000, guid: b23fd7aa924fba545b3a2c672e204112, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: b1f156b533caa3547a7b4b1bf42c9ff1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 399a0ed54083cc948ba4576ab7701f83, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CelCurveTexture:
@@ -48,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: addebf1623a60654ab8255cadaef240c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -104,7 +105,7 @@ Material:
     - _TextureBlendingMode: 0
     - _TextureImpact: 1
     - _UnityShadowMode: 1
-    - _UnityShadowOcclusion: 0
+    - _UnityShadowOcclusion: 1
     - _UnityShadowPower: 0.75
     - _UnityShadowSharpness: 1
     - _VertexColorsEnabled: 0
@@ -114,7 +115,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _ColorDim: {r: 0.85098046, g: 0.85098046, b: 0.85098046, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
-    - _ColorDimExtra: {r: 0.6415094, g: 0.6263795, b: 0.6263795, a: 1}
+    - _ColorDimExtra: {r: 0.8490566, g: 0.8370417, b: 0.8370417, a: 1}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
     - _ColorGradient: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _DetailMapColor: {r: 1, g: 1, b: 1, a: 1}

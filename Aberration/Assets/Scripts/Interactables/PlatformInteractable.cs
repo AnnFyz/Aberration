@@ -155,7 +155,7 @@ public class PlatformInteractable : XRBaseInteractable
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!isSelected)
         {
@@ -165,7 +165,7 @@ public class PlatformInteractable : XRBaseInteractable
 
     void AutoMove()
     {
-        transform.Translate(new Vector3(0, Mathf.Sin(Time.time) * amplitude, 0) * speed * Time.deltaTime);  
+        transform.Translate(new Vector3(0, Mathf.Sin(Time.time) * amplitude, 0) * speed * Time.fixedDeltaTime);  
         if (!isAutoMoving)
         {
             isAutoMoving = true;

@@ -8,19 +8,23 @@ public class CheckpointHandler : MonoBehaviour
 
     private void Awake()
     {
-        Transform[] children = GetComponentsInChildren<Transform>();
-        foreach (Transform child in children)
-        {
-            if(child.gameObject.tag == "Checkpoint")
-            {
-                checkpoint = child;
-            }
-        }
+        //Transform[] children = GetComponentsInChildren<Transform>();
+        //foreach (Transform child in children)
+        //{
+        //    if(child.gameObject.tag == "Checkpoint")
+        //    {
+        //        checkpoint = child;
+        //    }
+        //}
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
-        CheckpointTeleporter.Instance.SetCurrentCheckpoint(checkpoint);
+        {
+            Debug.Log("collision.gameObject.tag == Player");
+            CheckpointTeleporter.Instance.SetCurrentCheckpoint(checkpoint);
+        }
+        
     }
 }

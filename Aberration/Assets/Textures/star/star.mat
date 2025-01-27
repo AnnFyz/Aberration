@@ -14,7 +14,6 @@ Material:
   m_ValidKeywords:
   - DR_CEL_EXTRA_ON
   - DR_OUTLINE_ON
-  - DR_RIM_ON
   - _CELPRIMARYMODE_SINGLE
   - _DETAILMAPBLENDINGMODE_MULTIPLY
   - _EMISSION
@@ -106,8 +105,8 @@ Material:
     - _FlatRimAmount: 0.5
     - _FlatRimEdgeSmoothness: 0
     - _FlatRimEnabled: 1
-    - _FlatRimLightAlign: 0
-    - _FlatRimSize: 0.533
+    - _FlatRimLightAlign: 1
+    - _FlatRimSize: 0.041
     - _FlatShadowsEnabled: 1
     - _FlatSmoothness: 0.362
     - _FlatSpecularEdgeSmoothness: 0.897
@@ -145,10 +144,10 @@ Material:
     - _OverrideShadowsEnabled: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
-    - _RimEnabled: 1
+    - _RimEnabled: 0
     - _SecondaryColor: 1
     - _SecondaryColorEnabled: 1
-    - _SelfShadingSize: 0.569
+    - _SelfShadingSize: 0.726
     - _SelfShadingSizeExtra: 0.496
     - _ShadowEdgeSize: 0.024
     - _ShadowEdgeSizeExtra: 0.01

@@ -14,6 +14,9 @@ public class EnemyHandler : MonoBehaviour
     public EnemyMovement Movement;
     public NavMeshAgent Agent;
     public Action OnEnemyDeath;
+
+    public GameObject star;
+    public bool hasStar;
     private void Awake()
     {
         mesh.SetActive(true);
@@ -25,6 +28,7 @@ public class EnemyHandler : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        star.SetActive(false);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -46,6 +50,10 @@ public class EnemyHandler : MonoBehaviour
             explosionParticlesPrefab.SetActive(true);
             StartCoroutine(StartExplosion());
             Movement.State = EnemyState.Dead;
+            if (hasStar)
+            {
+                star.SetActive(true);
+            }
         }
     }
 

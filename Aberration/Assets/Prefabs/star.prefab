@@ -74,33 +74,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc62295529d4bcb49a03ba43e9d52ca5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4807774720878353239}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc62295529d4bcb49a03ba43e9d52ca5, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7427309714567842656}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc62295529d4bcb49a03ba43e9d52ca5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8254506323239177441}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc62295529d4bcb49a03ba43e9d52ca5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 917542375008095474}
   m_SourcePrefab: {fileID: 100100000, guid: dc62295529d4bcb49a03ba43e9d52ca5, type: 3}
 --- !u!1 &4294212255112447627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dc62295529d4bcb49a03ba43e9d52ca5, type: 3}
   m_PrefabInstance: {fileID: 3988344953919405018}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4807774720878353239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4294212255112447627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5e711d2791ce59439491c4e989b90f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 0.5
-  speed: 1
 --- !u!114 &7427309714567842656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +120,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.01
   m_Center: {x: 0, y: -0.0011280797, z: 0.0020279274}
+--- !u!114 &917542375008095474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294212255112447627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a472a1186ae43d44ba272a6580dda39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.1
+  speed: 2

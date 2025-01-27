@@ -5837,6 +5837,8 @@ MonoBehaviour:
   currentHealth: 100
   Movement: {fileID: 6294827916146893565}
   Agent: {fileID: 0}
+  star: {fileID: 1923055810597341202}
+  hasStar: 1
 --- !u!135 &6119738932057039173
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6176,6 +6178,11 @@ PrefabInstance:
 --- !u!4 &1295842342595957416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3518379930170367025, guid: 7089c77ccbdabf346a078a4d9c1e3809, type: 3}
+  m_PrefabInstance: {fileID: 2389170981600792217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1923055810597341202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4294212255112447627, guid: 7089c77ccbdabf346a078a4d9c1e3809, type: 3}
   m_PrefabInstance: {fileID: 2389170981600792217}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2461950620945846886

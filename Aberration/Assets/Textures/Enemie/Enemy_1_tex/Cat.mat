@@ -96,7 +96,7 @@ Material:
     - _QueueOffset: 0
     - _RimEnabled: 1
     - _SelfShadingSize: 0.363
-    - _SelfShadingSizeExtra: 0.42
+    - _SelfShadingSizeExtra: 0.135
     - _ShadowEdgeSize: 0.109
     - _ShadowEdgeSizeExtra: 0.118
     - _SpecularEnabled: 0
@@ -106,8 +106,8 @@ Material:
     - _TextureImpact: 1
     - _UnityShadowMode: 1
     - _UnityShadowOcclusion: 0
-    - _UnityShadowPower: 1
-    - _UnityShadowSharpness: 10
+    - _UnityShadowPower: 0.291
+    - _UnityShadowSharpness: 3.59
     - _VertexColorsEnabled: 0
     - _VertexExtrusionSmoothNormals: 0
     - _ZWrite: 1

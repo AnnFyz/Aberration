@@ -17,7 +17,7 @@ Material:
   - _CELPRIMARYMODE_SINGLE
   - _DETAILMAPBLENDINGMODE_MULTIPLY
   - _GRADIENTSPACE_WORLD
-  - _OUTLINESPACE_SCREEN
+  - _OUTLINESPACE_OBJECT
   - _TEXTUREBLENDINGMODE_MULTIPLY
   - _UNITYSHADOWMODE_MULTIPLY
   m_InvalidKeywords: []
@@ -89,8 +89,8 @@ Material:
     - _OutlineDepthOffset: 0
     - _OutlineEnabled: 1
     - _OutlineScale: 1
-    - _OutlineSpace: 0
-    - _OutlineWidth: 1
+    - _OutlineSpace: 1
+    - _OutlineWidth: 0.005
     - _OverrideLightmapDir: 0
     - _QueueOffset: 0
     - _RimEnabled: 0

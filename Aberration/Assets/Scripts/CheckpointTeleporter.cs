@@ -34,6 +34,7 @@ public class CheckpointTeleporter : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+
             player.GetComponent<CharacterController>().enabled = false;
             player.gameObject.transform.position = currentCheckpoint.position;
             player.GetComponent<CharacterController>().enabled = true;

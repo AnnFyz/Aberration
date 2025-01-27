@@ -18,13 +18,23 @@ public class CheckpointHandler : MonoBehaviour
         //}
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        Debug.Log("collision.gameObject.tag == Player");
+    //        CheckpointTeleporter.Instance.SetCurrentCheckpoint(checkpoint);
+    //    }
+        
+    //}
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            Debug.Log("collision.gameObject.tag == Player");
+            Debug.Log("other.gameObject.tag == Player");
             CheckpointTeleporter.Instance.SetCurrentCheckpoint(checkpoint);
         }
-        
     }
 }

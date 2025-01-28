@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHandler : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerHandler : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player is dead");
+            StartDeathScene();
+
         }
     }
 
@@ -30,6 +33,11 @@ public class PlayerHandler : MonoBehaviour
             var enemy = GameObject.FindGameObjectWithTag("Enemy");
             enemy.GetComponent<EnemyHandler>().ApplyDamage(100);
         }
+    }
+
+    void StartDeathScene()
+    {
+        SceneManager.LoadScene(3);
     }
 }
 

@@ -49,7 +49,8 @@ public class EnemyHandler : MonoBehaviour
         }
     }
 
-    void ApplyDamage(float damage)
+
+    public void ApplyDamage(float damage)
     {
         currentHealth -= damage;
         if(currentHealth <= 0 && Movement.State != EnemyState.Dead)
@@ -69,7 +70,8 @@ public class EnemyHandler : MonoBehaviour
     IEnumerator StartExplosion()
     {
         yield return new WaitForSeconds(explosionDelay);
-        EnemyManager.Instance.CurrentAmountOfEnemies -= 1;
+        EnemyManager.Instance.currentAmountOfEnemies -= 1;
+        EnemyManager.Instance.OnAmountChange?.Invoke();
         gameObject.SetActive(false);
     }
 

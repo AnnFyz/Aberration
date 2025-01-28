@@ -30,7 +30,8 @@ public class EnemySpawner : MonoBehaviour
         Triangulation = NavMesh.CalculateTriangulation();
 
         StartCoroutine(SpawnEnemies());
-        GetComponent<EnemyManager>().setCurrentAmountOfEnemies(NumberOfEnemiesToSpawn);
+        GetComponent<EnemyManager>().setCurrentAmountOfEnemies(NumberOfEnemiesToSpawn, false);
+       // GetComponent<EnemyManager>().CurrentAmountOfEnemies = (NumberOfEnemiesToSpawn);
     }
 
 
@@ -53,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
             SpawnedEnemies++;
-            //GetComponent<EnemyManager>().setCurrentAmountOfEnemies(1);
+            //GetComponent<EnemyManager>().isRespawned = true;
 
             yield return Wait;
         }
@@ -103,7 +104,7 @@ public class EnemySpawner : MonoBehaviour
     public void RespawnEnemies()
     {
         NumberOfEnemiesToSpawn = UnityEngine.Random.Range(5, 7);
-        GetComponent<EnemyManager>().setCurrentAmountOfEnemies(NumberOfEnemiesToSpawn);
+        GetComponent<EnemyManager>().setCurrentAmountOfEnemies(NumberOfEnemiesToSpawn, true);
         StartCoroutine(SpawnEnemies());
     }
 

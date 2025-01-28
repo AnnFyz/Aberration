@@ -7,6 +7,7 @@ public class PlayerHandler : MonoBehaviour
     [Header("Health")]
     [SerializeField] float maxHealth = 100;
     [SerializeField] float currentHealth = 100;
+    public int index = 0;
 
     private void Start()
     {
@@ -21,4 +22,15 @@ public class PlayerHandler : MonoBehaviour
             Debug.Log("Player is dead");
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            var enemy = GameObject.FindGameObjectWithTag("Enemy");
+            enemy.GetComponent<EnemyHandler>().ApplyDamage(100);
+        }
+    }
 }
+
+

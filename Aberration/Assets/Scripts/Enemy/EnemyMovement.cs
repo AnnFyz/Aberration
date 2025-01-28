@@ -173,8 +173,9 @@ public class EnemyMovement : PoolableObject
     public override void OnDisable()
     {
         base.OnDisable();
-
         Agent.enabled = false;
         _state = DefaultState;
+        attackingParticles.SetActive(false);
+        chasingSign.SetActive(false);
     }
 }

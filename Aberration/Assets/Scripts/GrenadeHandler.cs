@@ -16,28 +16,34 @@ public class GrenadeHandler : AutoDestroyPoolableObject
         //StartCoroutine(LiveTimeCountdown()); I already do it in AutoDestroyPoolableObject
         StartCoroutine(FallingTimeCountdown());
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Damage")
-        {
-            //StopCoroutine(LiveTimeCountdown());
-            //StartCoroutine(StartExplosion());
-            particlesPrefab.SetActive(true);
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Ground")  //|| collision.gameObject.tag == "Damage")
+    //    {
+    //        //StopCoroutine(LiveTimeCountdown());
+    //        //StartCoroutine(StartExplosion());
+    //        particlesPrefab.SetActive(true);
             
-        }
-    }
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Damage")
+        if (other.gameObject.tag == "Ground")  
         {
             //StopCoroutine(LiveTimeCountdown());
             //StartCoroutine(StartExplosion());
             particlesPrefab.SetActive(true);
-
         }
 
+        if (other.gameObject.tag == "Enemy")
+        {
+            StartCoroutine(StartExplosion(other.gameObject));
+           
+        }
     }
+
+
     //IEnumerator LiveTimeCountdown()
     //{
     //    yield return new WaitForSeconds(explosionDelay);
@@ -51,11 +57,12 @@ public class GrenadeHandler : AutoDestroyPoolableObject
         fallingGrenadeVisual.SetActive(false);
     }
 
-    //IEnumerator StartExplosion()
-    //{
-    //    yield return new WaitForSeconds(2f);
-    //    //Destroy(this.gameObject); // TO CHANGE TO DISABLE
-    //}
+    IEnumerator StartExplosion(GameObject enemy)
+    {
+        yield return new WaitForSeconds(.25f);
+        particlesPrefab.SetActive(true);
+        enemy.GetComponent<EnemyHandler>().ApplyDamage(100);
+    }
 
     public override void OnDisable()
     {

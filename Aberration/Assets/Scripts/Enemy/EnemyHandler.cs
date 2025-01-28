@@ -15,7 +15,7 @@ public class EnemyHandler : MonoBehaviour
     public NavMeshAgent Agent;
     public Action OnEnemyDeath;
 
-    public GameObject star;
+    public GameObject starPrefab;
     public bool hasStar;
     private void Awake()
     {
@@ -23,6 +23,7 @@ public class EnemyHandler : MonoBehaviour
         explosionParticlesPrefab.SetActive(false);
         Movement = GetComponent<EnemyMovement>();
         Agent = GetComponent<NavMeshAgent>();
+        hasStar = false;
     }
 
     public void OnEnable()
@@ -38,7 +39,7 @@ public class EnemyHandler : MonoBehaviour
         private void Start()
     {
         currentHealth = maxHealth;
-        star.SetActive(false);
+        starPrefab.SetActive(false);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -60,10 +61,13 @@ public class EnemyHandler : MonoBehaviour
             explosionParticlesPrefab.SetActive(true);
             StartCoroutine(StartExplosion());
             Movement.State = EnemyState.Dead;
-            //if (hasStar)
-            //{
-            //    star.SetActive(true);
-            //}
+            
+            if (hasStar)
+            {
+               var star = Instantiate(starPrefab, transform.position + new Vector3(0,2,0), Quaternion.identity);
+               star.transform.Rotate(new Vector3(-90, 0, 0), Space.Self);
+               star.SetActive(true);
+            }
         }
     }
 

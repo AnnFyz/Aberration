@@ -21,7 +21,7 @@ public class PlayerHandler : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player is dead");
-            StartDeathScene();
+            QuestManager.Instance.StartBadEndingScene();
 
         }
     }
@@ -35,10 +35,7 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
-    void StartDeathScene()
-    {
-        SceneManager.LoadScene(3);
-    }
+   
 }
 
 

@@ -46,11 +46,11 @@ public class EnemySpawner : MonoBehaviour
         {
             if (EnemySpawnMethod == SpawnMethod.RoundRobin)
             {
-                SpawnRoundRobinEnemy(SpawnedEnemies);
+                SpawnRoundRobinEnemy(SpawnedEnemies, SpawnedEnemies);
             }
             else if (EnemySpawnMethod == SpawnMethod.Random)
             {
-                SpawnRandomEnemy();
+                SpawnRandomEnemy(SpawnedEnemies);
             }
 
             SpawnedEnemies++;
@@ -60,25 +60,26 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void SpawnRoundRobinEnemy(int SpawnedEnemies)
+    private void SpawnRoundRobinEnemy(int SpawnedEnemies, int SpawnedEnemyIndex)
     {
         int SpawnIndex = SpawnedEnemies % EnemyPrefabs.Count;
 
-        DoSpawnEnemy(SpawnIndex);
+        DoSpawnEnemy(SpawnIndex, SpawnedEnemyIndex);
     }
 
-    private void SpawnRandomEnemy()
+    private void SpawnRandomEnemy(int SpawnedEnemyIndex)
     {
-        DoSpawnEnemy(UnityEngine.Random.Range(0, EnemyPrefabs.Count));
+        DoSpawnEnemy(UnityEngine.Random.Range(0, EnemyPrefabs.Count), SpawnedEnemyIndex);
     }
 
-    private void DoSpawnEnemy(int SpawnIndex)
+    private void DoSpawnEnemy(int SpawnIndex, int SpawnedEnemyIndex)
     {
         PoolableObject poolableObject = EnemyObjectPools[SpawnIndex].GetObject();
 
         if (poolableObject != null)
         {
             EnemyMovement enemy = poolableObject.GetComponent<EnemyMovement>();
+            if(SpawnedEnemyIndex == 0) { enemy.GetComponent<EnemyHandler>().hasStar = true; }
             int VertexIndex = UnityEngine.Random.Range(0, Triangulation.vertices.Length);
 
             NavMeshHit Hit;

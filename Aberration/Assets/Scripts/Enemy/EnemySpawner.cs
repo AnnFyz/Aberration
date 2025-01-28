@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public Transform Player;
     public int NumberOfEnemiesToSpawn = 5;
+    public int NumberOfEnemiesToCreate = 15;
     public float SpawnDelay = 1f;
     public List<EnemyMovement> EnemyPrefabs = new List<EnemyMovement>();
     public SpawnMethod EnemySpawnMethod = SpawnMethod.RoundRobin;
@@ -19,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < EnemyPrefabs.Count; i++)
         {
-            EnemyObjectPools.Add(i, ObjectPool.CreateInstance(EnemyPrefabs[i], NumberOfEnemiesToSpawn));
+            EnemyObjectPools.Add(i, ObjectPool.CreateInstance(EnemyPrefabs[i], NumberOfEnemiesToCreate));
         }
 
     }
@@ -29,10 +30,12 @@ public class EnemySpawner : MonoBehaviour
         Triangulation = NavMesh.CalculateTriangulation();
 
         StartCoroutine(SpawnEnemies());
+        GetComponent<EnemyManager>().setCurrentAmountOfEnemies(NumberOfEnemiesToSpawn);
     }
 
 
-    private IEnumerator SpawnEnemies()
+
+    public IEnumerator SpawnEnemies()
     {
         WaitForSeconds Wait = new WaitForSeconds(SpawnDelay);
 
@@ -50,6 +53,7 @@ public class EnemySpawner : MonoBehaviour
             }
 
             SpawnedEnemies++;
+            //GetComponent<EnemyManager>().setCurrentAmountOfEnemies(1);
 
             yield return Wait;
         }
@@ -74,7 +78,6 @@ public class EnemySpawner : MonoBehaviour
         if (poolableObject != null)
         {
             EnemyMovement enemy = poolableObject.GetComponent<EnemyMovement>();
-
             int VertexIndex = UnityEngine.Random.Range(0, Triangulation.vertices.Length);
 
             NavMeshHit Hit;
@@ -95,6 +98,13 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.LogError($"Unable to fetch enemy of type {SpawnIndex} from object pool. Out of objects?");
         }
+    }
+
+    public void RespawnEnemies()
+    {
+        NumberOfEnemiesToSpawn = UnityEngine.Random.Range(5, 7);
+        GetComponent<EnemyManager>().setCurrentAmountOfEnemies(NumberOfEnemiesToSpawn);
+        StartCoroutine(SpawnEnemies());
     }
 
 

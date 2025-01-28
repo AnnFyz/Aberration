@@ -11,7 +11,9 @@ public class EnemyManager : MonoBehaviour
     public Action OnAmountChange;
     [SerializeField] EnemySpawner enemySpawner;
     [SerializeField] int minAmountOfEnemies = 2;
+    [SerializeField] int maxAmountOfEnemies;
     [SerializeField] int _currentAmountOfEnemies = 0;
+    bool isRespawned = false;
     public int CurrentAmountOfEnemies
     {
         get
@@ -23,6 +25,12 @@ public class EnemyManager : MonoBehaviour
             OnAmountChange?.Invoke();
             _currentAmountOfEnemies = value;
         }
+    }
+
+    public void setCurrentAmountOfEnemies(int enemiesAmount)
+    {
+        Debug.Log("_currentAmountOfEnemies" + _currentAmountOfEnemies);
+        _currentAmountOfEnemies += enemiesAmount;
     }
 
     private void Awake()
@@ -37,7 +45,8 @@ public class EnemyManager : MonoBehaviour
         }
 
         enemySpawner = GetComponent<EnemySpawner>();
-        _currentAmountOfEnemies = enemySpawner.NumberOfEnemiesToSpawn;
+       // _currentAmountOfEnemies = enemySpawner.NumberOfEnemiesToSpawn;
+       // maxAmountOfEnemies = enemySpawner.NumberOfEnemiesToSpawn;
         OnAmountChange += HandleAmountChange;
        
         
@@ -50,10 +59,13 @@ public class EnemyManager : MonoBehaviour
 
     void HandleAmountChange()
     {
-        if (CurrentAmountOfEnemies <= minAmountOfEnemies)
+        if (CurrentAmountOfEnemies <= minAmountOfEnemies+1)
         {
-            
-            Debug.Log("Respawn");
+            Debug.Log("Respawn" + CurrentAmountOfEnemies);
+            Debug.Log("Respawn" + _currentAmountOfEnemies);
+            enemySpawner.RespawnEnemies();
+
+           
         }
     }
 }

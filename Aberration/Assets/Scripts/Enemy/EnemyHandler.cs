@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyHandler : MonoBehaviour
 {
     [SerializeField] GameObject explosionParticlesPrefab;
-    [SerializeField] float explosionDelay = 5f;
+    [SerializeField] float explosionDelay = 2f;
     [SerializeField] GameObject mesh;
     [SerializeField] float maxHealth = 100;
     [SerializeField] float currentHealth = 100;
@@ -25,7 +25,17 @@ public class EnemyHandler : MonoBehaviour
         Agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Start()
+    public void OnEnable()
+    {
+        mesh.SetActive(true);
+        explosionParticlesPrefab.SetActive(false);
+        Movement.State = EnemyState.Idle;
+        currentHealth = maxHealth;
+        //EnemyManager.Instance.CurrentAmountOfEnemies += 1;
+    }
+
+
+        private void Start()
     {
         currentHealth = maxHealth;
         star.SetActive(false);
@@ -34,7 +44,7 @@ public class EnemyHandler : MonoBehaviour
     {
         if (collision.gameObject.tag == "Damage")
         {
-            ApplyDamage(50);
+            ApplyDamage(100);
            
         }
     }
@@ -42,25 +52,25 @@ public class EnemyHandler : MonoBehaviour
     void ApplyDamage(float damage)
     {
         currentHealth -= damage;
-        if(currentHealth <= 0)
+        if(currentHealth <= 0 && Movement.State != EnemyState.Dead)
         {
-            EnemyManager.Instance.CurrentAmountOfEnemies -= 1;
             Debug.Log("Enemy is dead");
             mesh.SetActive(false);
             explosionParticlesPrefab.SetActive(true);
             StartCoroutine(StartExplosion());
             Movement.State = EnemyState.Dead;
-            if (hasStar)
-            {
-                star.SetActive(true);
-            }
+            //if (hasStar)
+            //{
+            //    star.SetActive(true);
+            //}
         }
     }
 
     IEnumerator StartExplosion()
     {
         yield return new WaitForSeconds(explosionDelay);
-        Destroy(this.gameObject);
+        EnemyManager.Instance.CurrentAmountOfEnemies -= 1;
+        gameObject.SetActive(false);
     }
 
 }

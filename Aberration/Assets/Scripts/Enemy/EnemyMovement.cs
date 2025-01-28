@@ -172,6 +172,7 @@ public class EnemyMovement : PoolableObject
 
     public override void OnDisable()
     {
+        Debug.Log("OnDisable");
         base.OnDisable();
 
         Agent.enabled = false;

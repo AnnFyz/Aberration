@@ -1,18 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int StarsToComplete = 3;
+    private static QuestManager _instance;
+    public static QuestManager Instance { get { return _instance; } }
+    public Action OnAmountChange;
+    int _amountOfCollectedStars = 0;
+    public int AmountOfCollectedStars
     {
-        
+        get
+        {
+            return _amountOfCollectedStars;
+        }
+        set
+        {
+            OnAmountChange?.Invoke();
+            _amountOfCollectedStars = value;
+        }
+    }
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
+        OnAmountChange += HandleAmountChange;
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void HandleAmountChange() {
+        Debug.Log("AmountOfCollectedStars" + AmountOfCollectedStars);
+    if(AmountOfCollectedStars >= StarsToComplete-1)
+        {
+            Debug.Log("Quest is completed");
+        }
     }
 }

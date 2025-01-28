@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float amplitude = 0.5f;
+    [SerializeField] float speed = 0.5f;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(new Vector3(0, 0, Mathf.Sin(Time.time) * amplitude) * speed * Time.deltaTime);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            QuestManager.Instance.AmountOfCollectedStars++;
+            Destroy(this.gameObject);
+        }
+       
     }
 }

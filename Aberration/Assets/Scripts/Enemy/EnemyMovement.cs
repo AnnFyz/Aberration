@@ -14,7 +14,7 @@ public class EnemyMovement : PoolableObject
 
     [Header("State settings")]
     public EnemyState DefaultState;
-    [SerializeField] GameObject chasingSign;
+    public GameObject chasingSign;
     [SerializeField] GameObject attackingParticles;
     [SerializeField] float chasingSpeed;
     [SerializeField] float attackingDistance = 5f;

@@ -59,12 +59,17 @@ public class EnemyHandler : MonoBehaviour
             Debug.Log("Enemy is dead");
             mesh.SetActive(false);
             explosionParticlesPrefab.SetActive(true);
-            StartCoroutine(StartExplosion());
+            Movement.chasingSign.SetActive(false);
+            if (this.gameObject.active)
+            {
+                StartCoroutine(StartExplosion());
+            }
             Movement.State = EnemyState.Dead;
             
             if (hasStar)
             {
-               var star = Instantiate(starPrefab, transform.position + new Vector3(0,2,0), Quaternion.identity);
+               Vector3 enemyPos = transform.position;
+               var star = Instantiate(starPrefab, enemyPos + new Vector3(0,2,0), Quaternion.identity);
                star.transform.Rotate(new Vector3(-90, 0, 0), Space.Self);
                star.SetActive(true);
             }

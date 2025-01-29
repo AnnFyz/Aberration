@@ -23,8 +23,12 @@ public class QuestManager : MonoBehaviour
         }
         set
         {
-            OnAmountChange?.Invoke();
-            _amountOfCollectedStars = value;
+            if(AmountOfCollectedStars <= StarsToComplete)
+            {
+                OnAmountChange?.Invoke();
+                _amountOfCollectedStars = value;
+            }
+            
         }
     }
     private void Awake()

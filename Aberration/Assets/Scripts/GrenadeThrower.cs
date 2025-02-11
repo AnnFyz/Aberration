@@ -20,8 +20,8 @@ public class GrenadeThrower : MonoBehaviour
 
     private void Awake()
     {
-        grenadePool = ObjectPool.CreateInstance(grenadePrefab.GetComponent<GrenadeHandler>(), 100);
-        projectilePool = ObjectPool.CreateInstance(projectilePrefab.GetComponent<ProjectileHandler>(), 100);
+        grenadePool = ObjectPool.CreateInstance(grenadePrefab.GetComponent<GrenadeHandler>(), 200);
+        projectilePool = ObjectPool.CreateInstance(projectilePrefab.GetComponent<ProjectileHandler>(), 300);
     }
     private void Start()
     {

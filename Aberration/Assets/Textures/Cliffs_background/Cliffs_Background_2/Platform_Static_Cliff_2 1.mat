@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Platform_Static_Cliff_2
+  m_Name: Platform_Static_Cliff_2 1
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -33,11 +33,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: a7c511735dfaaca46b4bd9b0cc9aa465, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4bf78114425ad4343926f8add80450e8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 09d3d1fc2d907f64eabab00880bb9a4c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1756f7af143eabd418b29f70806e3608, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CelCurveTexture:
@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMap:
-        m_Texture: {fileID: 2800000, guid: e7a1b5206c6740b4eb15b4dc23a8c40d, type: 3}
+        m_Texture: {fileID: 2800000, guid: ffcbc2de0d812f6498cdaa805b2e8740, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:

@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _Alpha: 0.45
     - _ColFoamAmount: 0.5
-    - _ColFoamCutoff: 1
+    - _ColFoamCutoff: 100
     - _ColFoamSize: 20
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -55,7 +55,7 @@ Material:
     - _maskScale: 0.043
     - _speed: -1
     m_Colors:
-    - _BorderColor: {r: 0.13159591, g: 5.579667, b: 5.1605844, a: 1}
+    - _BorderColor: {r: 0, g: 7.449293, b: 6.888594, a: 1}
     - _ColFoamColor: {r: 0.8370416, g: 1.7924528, b: 1.4563893, a: 1}
     - _Color: {r: 0, g: 0.8195543, b: 0.83137256, a: 1}
     - _FoamColor: {r: 0.495283, g: 0.9320573, b: 1, a: 1}

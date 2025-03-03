@@ -163,8 +163,8 @@ Material:
     - _UVSec: 0
     - _UnityShadowMode: 0
     - _UnityShadowOcclusion: 0
-    - _UnityShadowPower: 0.442
-    - _UnityShadowSharpness: 10
+    - _UnityShadowPower: 0.598
+    - _UnityShadowSharpness: 1
     - _VertexColorsEnabled: 0
     - _VertexExtrusionSmoothNormals: 0
     - _ZWrite: 1
@@ -186,5 +186,5 @@ Material:
     - _FlatSpecularColor: {r: 0.7139004, g: 0.7264151, b: 0.36663404, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnityShadowColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
+    - _UnityShadowColor: {r: 0.0627451, g: 0.078431375, b: 0.11764707, a: 1}
   m_BuildTextureStacks: []

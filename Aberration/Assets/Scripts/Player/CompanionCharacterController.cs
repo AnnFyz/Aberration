@@ -9,11 +9,10 @@ public class CompanionCharacterController : MonoBehaviour
     CharacterController characterController;
     Animator animator;
     [SerializeField] GameObject popMesh;
-    [SerializeField] FlatKit.OutlineSettings outline;
 
   //movement
     [Header("Movemet")]
-    [SerializeField] float movementSpeed = 10.0f;
+    public float movementSpeed = 10.0f;
     [SerializeField] float rotationFactorPerFrame = 15.0f;
 
     int isMovingHash;  
@@ -74,14 +73,27 @@ public class CompanionCharacterController : MonoBehaviour
 
     private void OnEnable()
     {
-        companionControls.CompanionCharacterControls.Enable();
+        ToggleControls(true);
     }
 
     private void OnDisable()
     {
-        companionControls.CompanionCharacterControls.Disable();
+        ToggleControls(false);
     }
 
+    public void ToggleControls(bool isEnabled)
+    {
+        if (isEnabled)
+        {
+            companionControls.CompanionCharacterControls.Enable();
+            Debug.Log("Enable");
+        }
+        else
+        {
+            companionControls.CompanionCharacterControls.Disable();
+            Debug.Log("Disable");
+        }
+    }
     void OnMovementInput(InputAction.CallbackContext context) 
     {
         currentInputMovement = context.ReadValue<Vector2>();

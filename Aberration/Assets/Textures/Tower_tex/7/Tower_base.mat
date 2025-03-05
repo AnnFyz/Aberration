@@ -123,8 +123,8 @@ Material:
     - _TextureImpact: 1
     - _UnityShadowMode: 1
     - _UnityShadowOcclusion: 1
-    - _UnityShadowPower: 0.75
-    - _UnityShadowSharpness: 1
+    - _UnityShadowPower: 0.729
+    - _UnityShadowSharpness: 5.08
     - _VertexColorsEnabled: 0
     - _VertexExtrusionSmoothNormals: 0
     - _ZWrite: 1

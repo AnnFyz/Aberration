@@ -37,10 +37,20 @@ public class CheckpointTeleporter : MonoBehaviour
 
             player.GetComponent<CharacterController>().enabled = false;
             player.gameObject.transform.position = currentCheckpoint.position;
+            StartCoroutine(player.GetComponent<PlayerHandler>().StartTeleportationVFX());
             player.GetComponent<CharacterController>().enabled = true;
+            player.GetComponent<CompanionCharacterController>().ToggleControls(false);
+            player.transform.GetChild(0).gameObject.SetActive(false);
+            StartCoroutine(StartTeleportationPLayer());
         }
     }
 
+    IEnumerator StartTeleportationPLayer()
+    {
+        yield return new WaitForSeconds(1.15f);
+        player.GetComponent<CompanionCharacterController>().ToggleControls(true);
+        player.transform.GetChild(0).gameObject.SetActive(true);
+    }
     public void SetCurrentCheckpoint(Transform checkpoint)
     {
        

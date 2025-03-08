@@ -41,7 +41,6 @@ public class GrenadeThrower : MonoBehaviour
         {
             //GameObject projectile = Instantiate(projectilePrefab, origin.position, origin.rotation);
             //projectile.GetComponent<Rigidbody>().AddForce(throwForce * origin.transform.forward);
-
             PoolableObject instance = projectilePool.GetObject();
             if (instance != null)
             {
@@ -49,6 +48,7 @@ public class GrenadeThrower : MonoBehaviour
                 instance.transform.position = origin.position;
                 instance.transform.rotation = origin.rotation;
                 instance.GetComponent<Rigidbody>().AddForce(throwForce * origin.transform.forward);
+                AudioManager.Instance.PlaySound("Shooting");
             }
         }
          

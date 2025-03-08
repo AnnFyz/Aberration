@@ -178,4 +178,5 @@ public class EnemyMovement : PoolableObject
         attackingParticles.SetActive(false);
         chasingSign.SetActive(false);
     }
+
 }

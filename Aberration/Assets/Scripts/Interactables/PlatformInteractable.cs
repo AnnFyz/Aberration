@@ -71,6 +71,7 @@ public class PlatformInteractable : XRBaseInteractable
     {
         if (updatePhase == XRInteractionUpdateOrder.UpdatePhase.Fixed && isSelected)
         {
+            GetComponent<Outline>().enabled = true;
             var interactorTransform = firstInteractorSelecting.GetAttachTransform(this);
            
 
@@ -107,6 +108,10 @@ public class PlatformInteractable : XRBaseInteractable
             //dragVectorLine.SetPosition(1, transform.position + forceInDirectionOfDrag * m_WorldDragDirection);
 
             // ===========================================================================
+        }
+        else
+        {
+            GetComponent<Outline>().enabled = false;
         }
     }
 

@@ -79,10 +79,14 @@ public class QuestManager : MonoBehaviour
     public void StartGoodEndingScene()
     {
         SceneManager.LoadScene(4);
+        AudioManager.Instance.StopSound("Background");
+        AudioManager.Instance.PlaySound("GoodEnding");
     }
 
     public void StartBadEndingScene()
     {
         SceneManager.LoadScene(3);
+        AudioManager.Instance.StopSound("Background");
+        AudioManager.Instance.PlaySound("BadEnding");
     }
 }

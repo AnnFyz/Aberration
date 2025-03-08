@@ -16,6 +16,7 @@ public class Star : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             QuestManager.Instance.AmountOfCollectedStars++;
+            AudioManager.Instance.PlaySound("Pickup");
             Destroy(this.gameObject);
         }
        

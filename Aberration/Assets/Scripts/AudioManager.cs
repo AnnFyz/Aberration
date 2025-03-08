@@ -30,13 +30,27 @@ public class AudioManager : MonoBehaviour
             sound.audioSource.volume = sound.volume;
             sound.audioSource.pitch = sound.pitch;
             sound.audioSource.loop = sound.loop;
+           // sound.audioSource.Play();
         }
     }
 
     public void PlaySound(string soundName)
     {
-        SoundSO s = System.Array.Find(sounds, sound => sound.name == name);
-        if (s == null) return;
+        SoundSO s = System.Array.Find(sounds, sound => sound.soundName == soundName);
+        if (s == null) {
+            Debug.Log("Sound is not found");
+            return; }
         s.audioSource.Play();
+    }
+
+    public void StopSound(string soundName)
+    {
+        SoundSO s = System.Array.Find(sounds, sound => sound.soundName == soundName);
+        if (s == null)
+        {
+            Debug.Log("Sound is not found");
+            return;
+        }
+        s.audioSource.Stop();
     }
 }

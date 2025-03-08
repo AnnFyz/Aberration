@@ -5,9 +5,13 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemyHandler : MonoBehaviour
 {
+    [Header("VFX Effects")]
     [SerializeField] GameObject explosionParticlesPrefab;
     [SerializeField] float explosionDelay = 2f;
     [SerializeField] GameObject mesh;
+    [SerializeField] GameObject teleportationVFX;
+
+    [Header("Health")]
     [SerializeField] float maxHealth = 100;
     [SerializeField] float currentHealth = 100;
 
@@ -32,6 +36,7 @@ public class EnemyHandler : MonoBehaviour
         explosionParticlesPrefab.SetActive(false);
         Movement.State = EnemyState.Idle;
         currentHealth = maxHealth;
+        StartCoroutine(StartTeleportation());
         //EnemyManager.Instance.CurrentAmountOfEnemies += 1;
     }
 
@@ -40,6 +45,7 @@ public class EnemyHandler : MonoBehaviour
     {
         currentHealth = maxHealth;
         starPrefab.SetActive(false);
+        
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -64,6 +70,7 @@ public class EnemyHandler : MonoBehaviour
             {
                 StartCoroutine(StartExplosion());
             }
+            AudioManager.Instance.PlaySound("EnemyExplosion");
             Movement.State = EnemyState.Dead;
             
             if (hasStar)
@@ -84,4 +91,11 @@ public class EnemyHandler : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    IEnumerator StartTeleportation()
+    {
+        AudioManager.Instance.PlaySound("EnemyTeleportation");
+        teleportationVFX.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        teleportationVFX.SetActive(false);
+    }
 }

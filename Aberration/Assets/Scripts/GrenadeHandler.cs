@@ -33,6 +33,7 @@ public class GrenadeHandler : AutoDestroyPoolableObject
         {
             //StopCoroutine(LiveTimeCountdown());
             //StartCoroutine(StartExplosion());
+            AudioManager.Instance.PlaySound("GrenadeExplosion");
             particlesPrefab.SetActive(true);
         }
 
@@ -61,6 +62,7 @@ public class GrenadeHandler : AutoDestroyPoolableObject
     {
         yield return new WaitForSeconds(.25f);
         particlesPrefab.SetActive(true);
+        AudioManager.Instance.PlaySound("GrenadeExplosion");
         enemy.GetComponent<EnemyHandler>().ApplyDamage(100);
     }
 

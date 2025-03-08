@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-   public void LoadNewScene()
+    private void Start()
+    {
+        PlayBackgroundMusic();
+    }
+    public void LoadNewScene()
     {
         int sceneCount = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
@@ -21,5 +25,10 @@ public class MainMenu : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void PlayBackgroundMusic()
+    {
+        AudioManager.Instance.PlaySound("Background");
     }
 }

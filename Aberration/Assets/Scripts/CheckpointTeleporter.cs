@@ -48,6 +48,7 @@ public class CheckpointTeleporter : MonoBehaviour
     IEnumerator StartTeleportationPLayer()
     {
         yield return new WaitForSeconds(1.15f);
+        AudioManager.Instance.PlaySound("PlayerTeleportation");
         player.GetComponent<CompanionCharacterController>().ToggleControls(true);
         player.transform.GetChild(0).gameObject.SetActive(true);
     }

@@ -63,12 +63,7 @@ public class CompanionCharacterController : MonoBehaviour
         characterController.Move(currentMovement * Time.deltaTime * movementSpeed);
 
         HandleGravity();
-        HandleJump();
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log(popMesh.GetComponent<Material>().GetTexturePropertyNameIDs());
-        }
-
+        HandleJump(); 
     }
 
     private void OnEnable()

@@ -39,12 +39,9 @@ public class GrenadeThrower : MonoBehaviour
     {
         if (context.started)
         {
-            //GameObject projectile = Instantiate(projectilePrefab, origin.position, origin.rotation);
-            //projectile.GetComponent<Rigidbody>().AddForce(throwForce * origin.transform.forward);
             PoolableObject instance = projectilePool.GetObject();
             if (instance != null)
             {
-                //instance.transform.SetParent(transform, false);
                 instance.transform.position = origin.position;
                 instance.transform.rotation = origin.rotation;
                 instance.GetComponent<Rigidbody>().AddForce(throwForce * origin.transform.forward);
@@ -58,12 +55,10 @@ public class GrenadeThrower : MonoBehaviour
     {
         if (!xrRayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit raycastHit)) return;
         if (!xRInteractorReticleVisual.enabled) return;
-        //GameObject grenade = Instantiate(grenadePrefab, raycastHit.point, Quaternion.identity);
 
         PoolableObject instance = grenadePool.GetObject();
         if (instance != null)
         {
-            //instance.transform.SetParent(transform, false);
             instance.transform.position = raycastHit.point;
             instance.transform.rotation = Quaternion.identity;
         }

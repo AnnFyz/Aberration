@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: Background
   audioClip: {fileID: 8300000, guid: cbb223f22955575498ba42e0194faef4, type: 3}
-  volume: 0.15
+  volume: 0.1
   pitch: 1
   loop: 1
   audioSource: {fileID: 0}

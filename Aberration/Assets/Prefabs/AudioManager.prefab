@@ -46,3 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 11400000, guid: 43f22d13916f0da42a9215d71f22d88f, type: 2}
+  - {fileID: 11400000, guid: 91d62e7e788d5c248a9b0cd7370812ad, type: 2}
+  - {fileID: 11400000, guid: fbc1a8f9324bb364e9c1a0e0005a8528, type: 2}
+  - {fileID: 11400000, guid: 3c6591da10701c448bf04a1d8c80dab0, type: 2}
+  - {fileID: 11400000, guid: 61f1dfe602236f74d9eea27b7757400a, type: 2}
+  - {fileID: 11400000, guid: 5aa328948edb6b344b4b4a7265e6ef6e, type: 2}
+  - {fileID: 11400000, guid: c7b4ae9ea0dbf704d9c5ee4a165251a0, type: 2}
+  - {fileID: 11400000, guid: 64c41f5841abc8c46818df4c58338a2a, type: 2}
+  - {fileID: 11400000, guid: 4108982a9e94f9e4a9934d6fe3e24917, type: 2}

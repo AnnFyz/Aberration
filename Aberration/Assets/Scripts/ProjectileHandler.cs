@@ -20,7 +20,7 @@ public class ProjectileHandler : AutoDestroyPoolableObject
         GetComponent<Rigidbody>().isKinematic = true;
         explosionParticlesPrefab.SetActive(true);
         startParticlesPrefab.SetActive(false);
-
+        GetComponent<Collider>().enabled = false;
     }
 
     IEnumerator LiveTimeCountdown()

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: EnemyExplosion
   audioClip: {fileID: 8300000, guid: d4c97d8972a328c45b38000c1d2fc053, type: 3}
-  volume: 0.5
+  volume: 0.1
   pitch: 1
   loop: 0
   audioSource: {fileID: 0}

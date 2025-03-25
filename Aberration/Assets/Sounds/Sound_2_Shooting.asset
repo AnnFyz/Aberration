@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: Shooting
   audioClip: {fileID: 8300000, guid: 2749480aa7e94c64e806ebdb32f08a02, type: 3}
-  volume: 0.5
+  volume: 0.1
   pitch: 1
   loop: 0
   audioSource: {fileID: 0}

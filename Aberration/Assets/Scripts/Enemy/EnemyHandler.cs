@@ -51,8 +51,8 @@ public class EnemyHandler : MonoBehaviour
     {
         if (collision.gameObject.tag == "Damage")
         {
-            ApplyDamage(100);
-           
+            ApplyDamage(maxHealth);
+
         }
     }
 
@@ -64,15 +64,14 @@ public class EnemyHandler : MonoBehaviour
         {
             Debug.Log("Enemy is dead");
             mesh.SetActive(false);
+            Movement.State = EnemyState.Dead;
             explosionParticlesPrefab.SetActive(true);
             Movement.chasingSign.SetActive(false);
-            if (this.gameObject.active)
+            AudioManager.Instance.PlaySound("EnemyExplosion");
+            if (gameObject.activeSelf)
             {
                 StartCoroutine(StartExplosion());
             }
-            AudioManager.Instance.PlaySound("EnemyExplosion");
-            Movement.State = EnemyState.Dead;
-            
             if (hasStar)
             {
                Vector3 enemyPos = transform.position;
@@ -93,7 +92,7 @@ public class EnemyHandler : MonoBehaviour
 
     IEnumerator StartTeleportation()
     {
-        AudioManager.Instance.PlaySound("EnemyTeleportation");
+        if(AudioManager.Instance != null) { AudioManager.Instance.PlaySound("EnemyTeleportation"); }
         teleportationVFX.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         teleportationVFX.SetActive(false);

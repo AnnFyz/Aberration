@@ -59,9 +59,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242876607674015713}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000004540198, y: 0.99946207, z: 0.023517003, w: 0.02285768}
-  m_LocalPosition: {x: 0, y: 1.83, z: 0.04}
-  m_LocalScale: {x: 0.33736303, y: 0.33736303, z: 0.33736303}
+  m_LocalRotation: {x: 0.000000004540198, y: 0.99946207, z: 0.023517009, w: 0.022857685}
+  m_LocalPosition: {x: 0, y: 1.8299999, z: 0.039999872}
+  m_LocalScale: {x: 0.33736297, y: 0.33736303, z: 0.33736303}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 580308318137167335}
@@ -871,6 +871,59 @@ Transform:
   - {fileID: 323486652490297633}
   m_Father: {fileID: 3561256130026954826}
   m_LocalEulerAnglesHint: {x: 0.0000016159837, y: 0.000015897685, z: 173.27295}
+--- !u!1 &6564368002371525405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6944370096681646502}
+  - component: {fileID: 7378422447349096313}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6944370096681646502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564368002371525405}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 580308318137167335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7378422447349096313
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564368002371525405}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.13
+  m_Center: {x: 0, y: 1.09, z: 0}
 --- !u!1 &6776267262006718439
 GameObject:
   m_ObjectHideFlags: 0
@@ -5775,11 +5828,12 @@ Transform:
   - {fileID: 2201820050941262429}
   - {fileID: 6322587268628423202}
   - {fileID: 2981674184887289044}
+  - {fileID: 5476475056447921732}
   - {fileID: 3697617710196675679}
   - {fileID: 1420933514832467211}
   - {fileID: 2491999228485317473}
-  - {fileID: 5476475056447921732}
   - {fileID: 4399317638924479071}
+  - {fileID: 6944370096681646502}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -178.652, y: 0, z: 180}
 --- !u!95 &8413829962418160494
@@ -5856,7 +5910,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 1.13
   m_Center: {x: 0, y: 1.09, z: 0}
@@ -5896,7 +5950,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8608393147677247651}
   m_Enabled: 1
   m_AgentTypeID: 1479372276
-  m_Radius: 0.87
+  m_Radius: 1
   m_Speed: 11.01
   m_Acceleration: 8
   avoidancePriority: 50
@@ -5925,6 +5979,7 @@ MonoBehaviour:
   UpdateRate: 0.1
   Agent: {fileID: 0}
   LineOfSightChecker: {fileID: 7487759528783055878}
+  enemyCollider: {fileID: 6564368002371525405}
   DefaultState: 1
   chasingSign: {fileID: 1242876607674015713}
   attackingParticles: {fileID: 2398649508704027898}
@@ -5953,7 +6008,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7487759528783055878
 MonoBehaviour:

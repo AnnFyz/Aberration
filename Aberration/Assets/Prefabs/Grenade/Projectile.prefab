@@ -14659,10 +14659,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c904058512738145a49546183e2e13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoDestroyTime: 5
+  AutoDestroyTime: 1.5
   startParticlesPrefab: {fileID: 4501399834746558140}
   explosionParticlesPrefab: {fileID: 5379729823683201185}
-  explosionDelay: 5
+  explosionDelay: 1
 --- !u!135 &4377775608570800278
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14682,7 +14682,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.03
+  m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4826847224786050968
 PrefabInstance:

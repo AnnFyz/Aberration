@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d802b2a412e4a5f46bdaedcf94cbbfa8, type: 3}
-  m_Name: Sound_5_PlayerTeleportation
+  m_Name: Sound_10_EnemyAttack
   m_EditorClassIdentifier: 
-  soundName: PlayerTeleportation
-  audioClip: {fileID: 8300000, guid: 60fefa715e4822649bd2be835e0f28c0, type: 3}
-  volume: 0.1
+  soundName: EnemyAttack
+  audioClip: {fileID: 8300000, guid: 59f41d40377a5f7469920ef244b9d655, type: 3}
+  volume: 0.25
   pitch: 1
   loop: 0
   audioSource: {fileID: 0}

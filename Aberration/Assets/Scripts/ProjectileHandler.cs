@@ -11,7 +11,7 @@ public class ProjectileHandler : AutoDestroyPoolableObject
     {
         explosionParticlesPrefab.SetActive(false);
         startParticlesPrefab.SetActive(true);
-        //StartCoroutine(LiveTimeCountdown());
+        StartCoroutine(LiveTimeCountdown());
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -23,11 +23,11 @@ public class ProjectileHandler : AutoDestroyPoolableObject
 
     }
 
-    //IEnumerator LiveTimeCountdown()
-    //{
-    //    yield return new WaitForSeconds(explosionDelay);
-    //    Destroy(this.gameObject);
-    //}
+    IEnumerator LiveTimeCountdown()
+    {
+        yield return new WaitForSeconds(explosionDelay);
+        Destroy(this.gameObject);
+    }
 
     //IEnumerator StartExplosion()
     //{

@@ -68,7 +68,7 @@ public class EnemyLineOfSightChecker : MonoBehaviour
         {
             RaycastHit Hit;
 
-            if (Physics.Raycast(eyes.position, Direction, out Hit, Collider.radius*2, LineOfSightLayers))
+            if (Physics.Raycast(eyes.position, Direction, out Hit, Collider.radius*5, LineOfSightLayers))
             {
                 if (Hit.transform.GetComponent<CompanionCharacterController>() != null)
                 {

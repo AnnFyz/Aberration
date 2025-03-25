@@ -13,6 +13,7 @@ public class EnemyMovement : PoolableObject
     private Coroutine FollowCoroutine;
 
     [Header("State settings")]
+    [SerializeField] GameObject enemyCollider;
     public EnemyState DefaultState;
     public GameObject chasingSign;
     [SerializeField] GameObject attackingParticles;
@@ -77,20 +78,23 @@ public class EnemyMovement : PoolableObject
                 StopCoroutine(FollowCoroutine);
             }
 
-  
-            switch (newState)
-            {
-                case EnemyState.Idle:
-                    FollowCoroutine = StartCoroutine(DoIdleMotion());
+                switch (newState)
+                {
+                    case EnemyState.Idle:
+                        FollowCoroutine = StartCoroutine(DoIdleMotion());
+                        enemyCollider.SetActive(true);
                     break;
-                case EnemyState.Chase:
-                    FollowCoroutine = StartCoroutine(FollowTarget());
-                    break;
-                case EnemyState.Dead:
-                    attackingParticles.SetActive(false);
-                    chasingSign.SetActive(false);
-                    break;
-            }
+                    case EnemyState.Chase:
+                        FollowCoroutine = StartCoroutine(FollowTarget());
+                        break;
+                    case EnemyState.Dead:
+                        attackingParticles.SetActive(false);
+                        chasingSign.SetActive(false);
+                        enemyCollider.SetActive(false);
+                        Debug.Log("Enemy is dead");
+                        break;
+                }
+           
         }
     }
  
@@ -132,10 +136,13 @@ public class EnemyMovement : PoolableObject
         if(Vector3.Distance(transform.position, Player.position) < 5f)
         {
             attackingParticles.SetActive(true);
+            AudioManager.Instance.PlaySound("EnemyAttack");
+
         }
         else
         {
             attackingParticles.SetActive(false);
+            AudioManager.Instance.StopSound("EnemyAttack");
         }
             while (true)
             {
@@ -157,6 +164,7 @@ public class EnemyMovement : PoolableObject
     }
     private void HandleGainSight(CompanionCharacterController player)
     {
+        if (State == EnemyState.Dead) { return; }
         chasingSign.SetActive(true);
         State = EnemyState.Chase;
     }

@@ -22,11 +22,6 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
-
     public void PlayBackgroundMusic()
     {
         AudioManager.Instance.PlaySound("Background");

@@ -46,6 +46,7 @@ public class QuestManager : MonoBehaviour
         playableDirector = GetComponent<PlayableDirector>();
     }
 
+
     private void Start()
     {
         foreach (var window in bloomWindows)
@@ -58,7 +59,8 @@ public class QuestManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Debug.Log("Quest is completed");
+            //Debug.Log("StopSound Background");
+            //AudioManager.Instance.StopSound("Background");
             playableDirector.Play();
             PortalTrigger.SetActive(true);
         }
@@ -67,26 +69,29 @@ public class QuestManager : MonoBehaviour
     void HandleAmountChange()
     {
         Debug.Log("AmountOfCollectedStars" + AmountOfCollectedStars);
-        bloomWindows[AmountOfCollectedStars].SetActive(true);
         if (AmountOfCollectedStars >= StarsToComplete - 1)
         {
             Debug.Log("Quest is completed");
             PortalTrigger.SetActive(true);
             playableDirector.Play();
         }
+        else
+        {
+            bloomWindows[AmountOfCollectedStars].SetActive(true);
+        }
     }
 
     public void StartGoodEndingScene()
     {
+       AudioManager.Instance.StopSound("Background");
+       AudioManager.Instance.PlaySound("GoodEnding");
         SceneManager.LoadScene(4);
-        AudioManager.Instance.StopSound("Background");
-        AudioManager.Instance.PlaySound("GoodEnding");
     }
 
     public void StartBadEndingScene()
     {
-        SceneManager.LoadScene(3);
         AudioManager.Instance.StopSound("Background");
         AudioManager.Instance.PlaySound("BadEnding");
+        SceneManager.LoadScene(3);
     }
 }

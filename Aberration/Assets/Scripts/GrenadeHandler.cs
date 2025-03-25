@@ -7,7 +7,7 @@ public class GrenadeHandler : AutoDestroyPoolableObject
     [SerializeField] GameObject particlesPrefab;
     [SerializeField] GameObject fallingGrenadeVisual;
     [SerializeField] float explosionDelay = 5f;
-
+    bool isExploded = false;
     public override void OnEnable()
     {
         base.OnEnable();
@@ -29,18 +29,16 @@ public class GrenadeHandler : AutoDestroyPoolableObject
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Ground")  
-        {
-            //StopCoroutine(LiveTimeCountdown());
-            //StartCoroutine(StartExplosion());
-            AudioManager.Instance.PlaySound("GrenadeExplosion");
-            particlesPrefab.SetActive(true);
-        }
-
         if (other.gameObject.tag == "Enemy")
         {
             StartCoroutine(StartExplosion(other.gameObject));
-           
+
+        }
+        else if (other.gameObject.tag == "Ground")
+        {
+            //StopCoroutine(LiveTimeCountdown());
+            //StartCoroutine(StartExplosion());
+            particlesPrefab.SetActive(true);
         }
     }
 
@@ -56,13 +54,13 @@ public class GrenadeHandler : AutoDestroyPoolableObject
     {
         yield return new WaitForSeconds(0.5f);
         fallingGrenadeVisual.SetActive(false);
+        AudioManager.Instance.PlaySound("GrenadeExplosion");
     }
 
     IEnumerator StartExplosion(GameObject enemy)
     {
         yield return new WaitForSeconds(.25f);
         particlesPrefab.SetActive(true);
-        AudioManager.Instance.PlaySound("GrenadeExplosion");
         enemy.GetComponent<EnemyHandler>().ApplyDamage(100);
     }
 

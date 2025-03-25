@@ -55,6 +55,10 @@ public class AudioManager : MonoBehaviour
             Debug.Log("Sound is not found");
             return;
         }
-        s.audioSource.Stop();
+        else
+        {
+            s.audioSource.Stop();
+        }
+       
     }
 }

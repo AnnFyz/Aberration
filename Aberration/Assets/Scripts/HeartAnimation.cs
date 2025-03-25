@@ -19,7 +19,7 @@ public class HeartAnimation : MonoBehaviour
     void Update()
     {
         currentColor = Color.Lerp(lerpedColor_1, lerpedColor_2, Mathf.PingPong(Time.time* time_c, 1));
-        heart.localScale = Vector3.Lerp(new Vector3(0.8f,0.8f,0.8f), new Vector3(0.7f, 0.7f, 0.7f), Mathf.PingPong(Time.time * time_s, 1));
+        heart.localScale = Vector3.Lerp(new Vector3(0.45f,0.45f,0.45f), new Vector3(0.35f, 0.35f, 0.35f), Mathf.PingPong(Time.time * time_s, 1));
         uiHealth.color = currentColor;
     }
 

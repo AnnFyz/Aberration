@@ -7,7 +7,7 @@ The Little Hero’s Big Adventure is a single-player, stationary VR action platf
 
 ### Core Gameplay Highlights
 
-Third-person Avatar-based traversal
+* Third-person Avatar-based traversal
 
 Timing-based jumping mechanics
 

@@ -9,30 +9,30 @@ The Little Hero’s Big Adventure is a single-player, stationary VR action platf
 
 * Third-person Avatar-based traversal
 
-Timing-based jumping mechanics
+* Timing-based jumping mechanics
 
-Reconfigurable game world with movable platforms
+* Reconfigurable game world with movable platforms
 
-Indirect combat via controller-based aiming
+* Indirect combat via controller-based aiming
 
-AI-driven enemies with state-based behavior
+* AI-driven enemies with state-based behavior
 
-Short-session gameplay (~10 minutes) optimized for VR comfort
+* Short-session gameplay (~10 minutes) optimized for VR comfort
 
 ## Requirements
 
-Unity Hub
+* Unity Hub
 
-Unity Version: Unity 2022 LTS (recommended)
+* Unity Version: Unity 2022 LTS (recommended)
 
-Android Build Support
+* Android Build Support
 
-Android SDK
+* Android SDK
 
-NDK
+* NDK
 
-OpenJDK
+* OpenJDK
 
-Meta Quest 3 with Developer Mode enabled
+* Meta Quest 3 with Developer Mode enabled
 
-USB-C cable or Oculus Link / Air Link
+* USB-C cable or Oculus Link / Air Link

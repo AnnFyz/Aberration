@@ -27,12 +27,6 @@ The Little Hero’s Big Adventure is a single-player, stationary VR action platf
 
 * Android Build Support
 
-* Android SDK
-
-* NDK
-
-* OpenJDK
-
 * Meta Quest 3 with Developer Mode enabled
 
 * USB-C cable or Oculus Link / Air Link

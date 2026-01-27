@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords:
   - DR_CEL_EXTRA_ON
   - DR_GRADIENT_ON
+  - DR_RIM_ON
   - _CELPRIMARYMODE_SINGLE
   - _DETAILMAPBLENDINGMODE_MULTIPLY
   - _GRADIENTSPACE_WORLD
@@ -102,10 +103,10 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FlatRimAmount: 0.5
-    - _FlatRimEdgeSmoothness: 0.5
+    - _FlatRimEdgeSmoothness: 0.044
     - _FlatRimEnabled: 1
-    - _FlatRimLightAlign: 0
-    - _FlatRimSize: 0.417
+    - _FlatRimLightAlign: 0.164
+    - _FlatRimSize: 0.561
     - _FlatShadowsEnabled: 1
     - _FlatSmoothness: 0.362
     - _FlatSpecularEdgeSmoothness: 0.897
@@ -143,7 +144,7 @@ Material:
     - _OverrideShadowsEnabled: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
-    - _RimEnabled: 0
+    - _RimEnabled: 1
     - _SecondaryColor: 1
     - _SecondaryColorEnabled: 1
     - _SelfShadingSize: 0
@@ -173,7 +174,7 @@ Material:
     - _ColorCelShadow: {r: 0.15880503, g: 0.12735848, b: 0.16981131, a: 1}
     - _ColorDim: {r: 0.5377358, g: 0.4946155, b: 0.4946155, a: 1}
     - _ColorDimCurve: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
-    - _ColorDimExtra: {r: 0.4056604, g: 0.31955323, b: 0.31955323, a: 1}
+    - _ColorDimExtra: {r: 0.3018868, g: 0.26913494, b: 0.26913494, a: 1}
     - _ColorDimSteps: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
     - _ColorGradient: {r: 0.15896086, g: 0.07818743, b: 0.051269468, a: 1}
     - _ColorSecondary: {r: 1, g: 0.55879205, b: 0, a: 1}
@@ -181,10 +182,9 @@ Material:
     - _ColorShadows: {r: 0.19742335, g: 0.11854753, b: 0.2264151, a: 1}
     - _DetailMapColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 4.9245777, g: 0, b: 0, a: 1}
-    - _FlatRimColor: {r: 0.34317765, g: 0.27247238, b: 0.36792448, a: 1}
+    - _FlatRimColor: {r: 0.027436819, g: 0.024697408, b: 0.028301895, a: 1}
     - _FlatSpecularColor: {r: 0.5213154, g: 0.6236126, b: 0.6698113, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _UnityShadowColor: {r: 0.65, g: 0.65, b: 0.65, a: 1}
   m_BuildTextureStacks: []
-  m_AllowLocking: 1

@@ -3,20 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Anchor
+  - Ground
+  - Checkpoint
+  - Damage
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - XRInteractables
+  - PostProcessing
+  - Placeable
+  - Projectile
+  - StaticPlatform
+  - Player
   - 
   - 
   - 
